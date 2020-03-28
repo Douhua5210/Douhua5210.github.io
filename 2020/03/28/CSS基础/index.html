@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>CSS基础 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to [Hexo](https:&#x2F;&#x2F;hexo.io&#x2F;)! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask">
+  <meta name="description" content="css基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="CSS基础">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;28&#x2F;CSS%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to [Hexo](https:&#x2F;&#x2F;hexo.io&#x2F;)! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask">
-<meta property="article:published_time" content="2019-12-10T08:32:16.404Z">
-<meta property="article:modified_time" content="2020-03-28T08:17:41.213Z">
+<meta property="og:description" content="css基础">
+<meta property="article:published_time" content="2020-03-28T06:07:10.000Z">
+<meta property="article:modified_time" content="2020-03-28T08:23:04.379Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -149,41 +149,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CSS基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      CSS基础
     </h1>
   
 
         
-        <a href="/2019/12/10/hello-world/" class="archive-article-date">
-  	<time datetime="2019-12-10T08:32:16.404Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/2020/03/28/CSS%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-03-28T06:07:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to [Hexo]<br>(<a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a>)! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
+        <h1 id="css基础"><a href="#css基础" class="headerlink" title="css基础"></a>css基础</h1><a id="more"></a>
+<h2 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h2><p>为了让网页元素的样式更加丰富，<br>也为了让网页是内容和样式能拆分开，<br>css由此思想产生，<br>css的全称是……巴拉巴拉巴拉，<br>意思是层叠样式表，<br>有了css，html的大部分表示样式的标签就废弃不用了，<br>html只负责文档的结构和内容，表现形式完全交给css，html文档变得更加简洁。</p>
+<h2 id="css基本语法及界面引用"><a href="#css基本语法及界面引用" class="headerlink" title="css基本语法及界面引用"></a>css基本语法及界面引用</h2><h3 id="css基本语法"><a href="#css基本语法" class="headerlink" title="css基本语法"></a>css基本语法</h3><p>css的定义方法是：选择器{属性：值；属性：值}，<br>选择器是将样式和页面元素关联起来的名称，属性是希望设置的样式，一个属性有一个或多个值。 </p>
+<p>示例：<code>div{width:200px;height:200px}</code></p>
+<h3 id="css页面引用方法"><a href="#css页面引用方法" class="headerlink" title="css页面引用方法"></a>css页面引用方法</h3><ol>
+<li>外联式：通过link标签，链接外部样式到页面中。    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;xxxcss&quot;&gt;</span></pre></td></tr></table></figure></li>
+<li>嵌入式：通过style标签，在网页上创建嵌入的样式表。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;     </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    div&#123; width:200px; height:200px; &#125;      </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    ......     </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;style&gt;</span></pre></td></tr></table></figure></li>
+<li>内联式：通过标签的style属性，在标签上直接写样式。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;div style&#x3D;&quot;width:200px; height:200px &quot;&gt;     </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">......    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h2><h3 id="常用的选择器有以下几种："><a href="#常用的选择器有以下几种：" class="headerlink" title="常用的选择器有以下几种："></a>常用的选择器有以下几种：</h3><h4 id="1-标签选择器，此选择器影响范围大，尽量用在层级选择器中。"><a href="#1-标签选择器，此选择器影响范围大，尽量用在层级选择器中。" class="headerlink" title="1. 标签选择器，此选择器影响范围大，尽量用在层级选择器中。"></a>1. 标签选择器，此选择器影响范围大，尽量用在层级选择器中。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">div&#123;width:100px; height:200px;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;div&gt;1&lt;&#x2F;div&gt;   &lt;!--对应上面的样式--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box&quot;&gt;2&lt;&#x2F;div&gt;   &lt;!--也对应上面的样式--&gt;</span></pre></td></tr></table></figure>
+<h4 id="2-id选择器，通过id选择元素，元素的id不能重复，所以一个样式设置只对应一个元素，不能复用，id名一般给程序使用，所以不推荐使用id作为选择器。"><a href="#2-id选择器，通过id选择元素，元素的id不能重复，所以一个样式设置只对应一个元素，不能复用，id名一般给程序使用，所以不推荐使用id作为选择器。" class="headerlink" title="2. id选择器，通过id选择元素，元素的id不能重复，所以一个样式设置只对应一个元素，不能复用，id名一般给程序使用，所以不推荐使用id作为选择器。"></a>2. id选择器，通过id选择元素，元素的id不能重复，所以一个样式设置只对应一个元素，不能复用，id名一般给程序使用，所以不推荐使用id作为选择器。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#box &#123;width:200px;height:200px;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;box&quot;&gt;1&lt;&#x2F;div&gt;    &lt;!--对应上面的样式，其他元素不允许应用此样式--&gt;</span></pre></td></tr></table></figure>
+<h4 id="3-类选择器，通过类名选择元素，一个元素可以有多个类名，一个类名也可以对应多个元素，使用灵活，是css使用最多的选择器。"><a href="#3-类选择器，通过类名选择元素，一个元素可以有多个类名，一个类名也可以对应多个元素，使用灵活，是css使用最多的选择器。" class="headerlink" title="3. 类选择器，通过类名选择元素，一个元素可以有多个类名，一个类名也可以对应多个元素，使用灵活，是css使用最多的选择器。"></a>3. 类选择器，通过类名选择元素，一个元素可以有多个类名，一个类名也可以对应多个元素，使用灵活，是css使用最多的选择器。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box&#123;width:200px;heiht:200px&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.box2&#123;background:red&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box box2&quot;&gt;1&lt;&#x2F;div&gt;   &lt;!--可以有多个类名，同时应用上面的两个样式表--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box&quot;&gt;2&lt;&#x2F;div&gt;   &lt;!--可以用重复的类名--&gt;</span></pre></td></tr></table></figure>
+<h4 id="4-层级选择器，主要应用于此父级元素下的子元素，或子元素的子元素，可与标签元素结合使用，减少命名，同时也可以通过层级，减少命名冲突。"><a href="#4-层级选择器，主要应用于此父级元素下的子元素，或子元素的子元素，可与标签元素结合使用，减少命名，同时也可以通过层级，减少命名冲突。" class="headerlink" title="4.层级选择器，主要应用于此父级元素下的子元素，或子元素的子元素，可与标签元素结合使用，减少命名，同时也可以通过层级，减少命名冲突。"></a>4.层级选择器，主要应用于此父级元素下的子元素，或子元素的子元素，可与标签元素结合使用，减少命名，同时也可以通过层级，减少命名冲突。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box span&#123;color:red&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.box .item&#123;width:200px;height:200px&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">.box .item h1&#123;color:blue&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &lt;span&gt;......&lt;&#x2F;span&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &lt;div class&#x3D;&quot;item&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        &lt;h1&gt;....&lt;&#x2F;h1&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure>
+<h4 id="5-组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。"><a href="#5-组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。" class="headerlink" title="5.组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。"></a>5.组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box1,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.box2,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">.box3&#123;width:200px;height:200px&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box1&quot;&gt;1&lt;&#x2F;div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box2&quot;&gt;2&lt;&#x2F;div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box3&quot;&gt;3&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure>
+<h4 id="6-伪类及伪元素选择器"><a href="#6-伪类及伪元素选择器" class="headerlink" title="6.伪类及伪元素选择器"></a>6.伪类及伪元素选择器</h4><p>常用的伪类选择器有hover，表示鼠标悬停在元素上时的状态；伪元素选择器有after和before，它们可以通过样式在元素中添加内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box:hover&#123;background:red&#125;      &#x2F;*鼠标悬停在box上时变红色*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.box:after&#123;content:&quot;world&quot;&#125;     &#x2F;*在box内容后添加&quot;world&quot;*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">.box:before&#123;content:&quot;hello&quot;&#125;    &#x2F;*在box内容前添加&quot;hello&quot;*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box&quot;&gt;......&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
 
@@ -273,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/10/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/28/CSS%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,15 +291,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我的第一篇博客文章
-        
-      </div>
-    </a>
   
+    <a href="/2020/03/27/HTML%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
