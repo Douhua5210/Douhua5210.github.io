@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CSS基础 | Hexo</title>
+  <title>前端-CSS | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="css基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS基础">
+<meta property="og:title" content="前端-CSS">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;28&#x2F;CSS%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="css基础">
 <meta property="article:published_time" content="2020-03-28T06:07:10.000Z">
-<meta property="article:modified_time" content="2020-03-28T08:23:04.379Z">
+<meta property="article:modified_time" content="2020-03-29T13:27:06.789Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -156,7 +156,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CSS基础
+      前端-CSS
     </h1>
   
 
@@ -187,7 +187,110 @@
 <h4 id="5-组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。"><a href="#5-组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。" class="headerlink" title="5.组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。"></a>5.组选择器，如果多个元素具有相同的样式，也可以使用组选择器，也叫并列选择器。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box1,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.box2,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">.box3&#123;width:200px;height:200px&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box1&quot;&gt;1&lt;&#x2F;div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box2&quot;&gt;2&lt;&#x2F;div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box3&quot;&gt;3&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure>
 <h4 id="6-伪类及伪元素选择器"><a href="#6-伪类及伪元素选择器" class="headerlink" title="6.伪类及伪元素选择器"></a>6.伪类及伪元素选择器</h4><p>常用的伪类选择器有hover，表示鼠标悬停在元素上时的状态；伪元素选择器有after和before，它们可以通过样式在元素中添加内容。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box:hover&#123;background:red&#125;      &#x2F;*鼠标悬停在box上时变红色*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">.box:after&#123;content:&quot;world&quot;&#125;     &#x2F;*在box内容后添加&quot;world&quot;*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">.box:before&#123;content:&quot;hello&quot;&#125;    &#x2F;*在box内容前添加&quot;hello&quot;*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;box&quot;&gt;......&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure>
-
+<h2 id="cssa颜色、文本字体"><a href="#cssa颜色、文本字体" class="headerlink" title="cssa颜色、文本字体"></a>cssa颜色、文本字体</h2><h3 id="css颜色表示法"><a href="#css颜色表示法" class="headerlink" title="css颜色表示法"></a>css颜色表示法</h3><ol>
+<li>颜色名表示法，比如red红色、gold金色；</li>
+<li>16进制数值表示，比如#ff0000表示红色，可简写成#f00；</li>
+<li>RGB颜色表示：红（R）、绿（G）、蓝（B）三个颜色通道的变化，background-color：rgb(200,100,0)；</li>
+<li>RGBA颜色表示：红（R）、绿（G）、蓝（B）、透明度（A)，background-color：rgba（200,100,0,0.5）；    <blockquote>
+<p>十六进制：0<del>9，a</del>f；rgb的值：0~255</p>
+</blockquote>
+<h3 id="css文本设置"><a href="#css文本设置" class="headerlink" title="css文本设置"></a>css文本设置</h3>常用的应用文本的css样式：</li>
+<li>color，设置文本的颜色，如color：red；</li>
+<li>font-size，设置文字大小，如font-size：20px；</li>
+<li>font-family，设置文字字体，如font-family：’微软雅黑’；</li>
+<li>font-style，设置文字是否倾斜，如font-style：’normal’，设置不倾斜；font-style：’italic’，设置倾斜；</li>
+<li>font-weight，设置文字是否加粗，如font-weight：bold，设置加粗；font-weight：normal；</li>
+<li>line-height，设置文字的行高，如line-height：20px；</li>
+<li>text-decoration，设置文字的下划线，如text-decoration：none，去掉文本下划线；</li>
+<li>text-indent，设置文本的首行缩进，如text-indent：20px，设置文本首行缩进20px；</li>
+<li>text-align，设置文本的水平对齐方式，如text-align：center，设置文本水平居中；<h2 id="css边框属性"><a href="#css边框属性" class="headerlink" title="css边框属性"></a>css边框属性</h2></li>
+<li>border属性，设置边框颜色、样式、宽度；</li>
+<li>border-color；</li>
+<li>border-style属性，设置边框样式，solid实线，dotted点状线，dashed虚线；</li>
+<li>border-width；</li>
+<li>border-left-width；</li>
+<li>border-left-color；</li>
+<li>border-left-style；</li>
+<li>border-radius：圆角处理；</li>
+<li>box-shadow：x轴偏移 y轴偏移 模糊度 扩散程度 颜色 inset内阴影 设置或检索对象阴影；<h2 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h2></li>
+<li>background-color：背景颜色；</li>
+<li>background-image：背景图片；</li>
+<li>background-repeat：是否重复；</li>
+<li>background-position：定位；</li>
+<li>background-size：背景大小，如background-size：100px 200px；<h2 id="css间距"><a href="#css间距" class="headerlink" title="css间距"></a>css间距</h2></li>
+</ol>
+<ul>
+<li><p>内补白（内补丁）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">padding:设置对象四边的内部边距，如padding：10px 20px 30px 40px</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">padding-left;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">padding-right;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">padding-top;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">padding-bottom;</span></pre></td></tr></table></figure></li>
+<li><p>外补白（外补丁）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">margin：设置对象的四边的外延边距，如margin：10px 20px 30px 40px</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">margin-left；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">margin-right；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">margin-top；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">margin-bottom；</span></pre></td></tr></table></figure></li>
+<li><p>margin相关技巧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">1.margin:x auto；   设置元素的垂直居中。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2.margin可以设置负值，实现边框合并。</span></pre></td></tr></table></figure>
+<h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><p>元素在页面中显示成一个方块，类似一个盒子，css的盒子模型是用现实的盒子作比喻，帮助我们设置元素的样式。</p>
+<blockquote>
+<p>把元素当做盒子，设置对应的样式为：盒子和边框（border）、盒子的内容和边框的间距（padding）、盒子与盒子之间的间距（margin）。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">盒子的真实尺寸</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">盒子宽度&#x3D;width+padding左右+border左右</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">盒子高度&#x3D;height+padding上下+border上下</span></pre></td></tr></table></figure>
+<p>在布局中，如果想改变内容和边框的间距，又不想改变盒子显示的尺寸。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">box-sizing:content-box|border-box</span></pre></td></tr></table></figure>
+<h2 id="块元素-emsp-内联元素-emsp-内联块元素"><a href="#块元素-emsp-内联元素-emsp-内联块元素" class="headerlink" title="块元素&emsp;内联元素&emsp;内联块元素"></a>块元素&emsp;内联元素&emsp;内联块元素</h2><p>布局中常用三种元素，块元素、内联元素、内联块元素，熟练掌握方便页面布局。</p>
+<h3 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h3><p>也叫行元素，布局中常用的标签如div、p、h1~h6、ul、dl等都是块元素，它们在布局中的行为：</p>
+</li>
+<li><p>支持全部的样式</p>
+</li>
+<li><p>若没有设置宽度，默认宽度为父级元素宽度的100%</p>
+</li>
+<li><p>独占一行，即使设置了宽度</p>
+<h3 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h3><p>也叫行内元素，布局中常用的标签有a、span、em、b等都是内联元素，它们在布局中的行为有：</p>
+</li>
+<li><p>只支持部分样式（不支持宽高、margin上下）</p>
+</li>
+<li><p>宽高由内容决定</p>
+</li>
+<li><p>盒子并在一行</p>
+</li>
+<li><p>代码换行，盒子之间会产生间距</p>
+</li>
+<li><p>子元素是内联元素，父元素可以用text-align属性值来设置子元素的水平对齐方式，用line-height属性值来设置子元素的垂直对齐方式。</p>
+<h3 id="内联块元素"><a href="#内联块元素" class="headerlink" title="内联块元素"></a>内联块元素</h3><p>也叫行内块元素，是新增的元素类型，现有的元素没有归于此类的，img和input元素的行为类似这种元素，但也归于内联元素，它们在布局中的表现行为有：</p>
+</li>
+<li><p>支持全部样式</p>
+</li>
+<li><p>如果没有设置宽高，则宽高由内容决定</p>
+</li>
+<li><p>盒子并在一行</p>
+</li>
+<li><p>盒子并在一行</p>
+</li>
+<li><p>代码换行，盒子之间会产生间距</p>
+</li>
+<li><p>子元素是内联块元素，父元素可以用text-align属性值来设置子元素的水平对齐方式，用line-height属性值来设置子元素的垂直对齐方式。</p>
+<h3 id="块元素、内联元素、内联块元素之间的转换"><a href="#块元素、内联元素、内联块元素之间的转换" class="headerlink" title="块元素、内联元素、内联块元素之间的转换"></a>块元素、内联元素、内联块元素之间的转换</h3><p>display属性用来设置元素的类型及隐藏，常用的值有：</p>
+</li>
+<li><p>none&emsp;&emsp;元素隐藏且不占位置</p>
+</li>
+<li><p>block&emsp;&emsp;元素以块元素显示</p>
+</li>
+<li><p>inline&emsp;&emsp;元素以内联元素显示</p>
+</li>
+<li><p>inline-block&emsp;元素以内联块元素显示</p>
+<h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><h3 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h3><p>是指盒子按照html标签编写的顺序从左到右、从上到下依次排列，块元素独占一行，行内元素在一行内从左到右排列，先写的先排列，后写的后排列，每个盒子占据自己的位置。</p>
+<h3 id="浮动的特性"><a href="#浮动的特性" class="headerlink" title="浮动的特性"></a>浮动的特性</h3></li>
+</ul>
+<ol>
+<li>浮动分为左浮动（float：left）和右浮动（float：right）两种。</li>
+<li>浮动的元素向左或向右浮动时，碰到父元素的边界、未浮动的元素和浮动的元素才会停下来。</li>
+<li>相邻浮动的块元素可以并在一行，超过父元素的宽度会换行。</li>
+<li>浮动让行内元素或块元素自动转化为行内块元素。</li>
+<li>浮动元素后面的没有浮动的元素会占据浮动元素的位置，没有浮动的元素内的文字会绕开浮动的元素，形成文字绕图的效果。</li>
+<li>如果父元素内的元素整体浮动，则无法撑开父元素，需要清除浮动。</li>
+<li>浮动元素之间没有垂直margin的合并。<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3></li>
+</ol>
+<ul>
+<li>父级元素上增加属性overflow：hidden</li>
+<li>在最后一个子元素的后面加一个空的div，并给它样式属性clear：both（不推荐，破坏html结构）</li>
+<li>使用成熟的清除浮动样式类，clearfix</li>
+</ul>
 
       
 
@@ -293,7 +396,7 @@
   
   
     <a href="/2020/03/27/HTML%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML基础</div>
+      <div class="article-nav-title">前端-HTML</div>
       <i class="icon-circle-right"></i>
     </a>
   
