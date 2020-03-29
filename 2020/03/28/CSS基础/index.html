@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="css基础">
 <meta property="article:published_time" content="2020-03-28T06:07:10.000Z">
-<meta property="article:modified_time" content="2020-03-29T13:27:06.789Z">
+<meta property="article:modified_time" content="2020-03-29T14:26:37.388Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -284,13 +284,20 @@
 <li>浮动让行内元素或块元素自动转化为行内块元素。</li>
 <li>浮动元素后面的没有浮动的元素会占据浮动元素的位置，没有浮动的元素内的文字会绕开浮动的元素，形成文字绕图的效果。</li>
 <li>如果父元素内的元素整体浮动，则无法撑开父元素，需要清除浮动。</li>
-<li>浮动元素之间没有垂直margin的合并。<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3></li>
+<li>浮动元素之间没有垂直margin的合并。<h3 id="清除浮动，解决父级元素高度无法撑开的问题"><a href="#清除浮动，解决父级元素高度无法撑开的问题" class="headerlink" title="清除浮动，解决父级元素高度无法撑开的问题"></a>清除浮动，解决父级元素高度无法撑开的问题</h3></li>
 </ol>
 <ul>
 <li>父级元素上增加属性overflow：hidden</li>
 <li>在最后一个子元素的后面加一个空的div，并给它样式属性clear：both（不推荐，破坏html结构）</li>
-<li>使用成熟的清除浮动样式类，clearfix</li>
+<li>给父级元素使用成熟的清除浮动样式类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.wrap:after&#123;          &#x2F;*用伪类选择器清除浮动*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    content:&#39;&#39;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    display:table;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    clear:both;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;wrap&quot;&gt;    &lt;!--父级元素--&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &lt;div&gt;&lt;&#x2F;div&gt;       &lt;!--子元素都是浮动的--&gt;      </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    ......</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2>我们可以使用css的position属性来设置元素的定位类型，position属性设置项如下：</li>
 </ul>
+<ol>
+<li>relative生成相对定位元素，以元素本身的位置为参考点进行偏移，不脱离文档流。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    position:relative;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    left:100px;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    top:100px;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
+<li>absolute生成绝对定位元素，以有定位属性的父级元素为参考点进行偏移，如果父级元素没有定位属性，就一级一级向上找，直到找到有定位属性的元素，以该元素为参考点偏移，如果找到body，就以body为参考点进行偏移，会脱离文档流，不占据文档位置。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.wrap&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    position:relative;      &#x2F;*给父级元素加上定位属性*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">.box&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    position:absolute;      &#x2F;*绝对定位，以有定位属性的父级为参考点*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    left:100px;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    top:100px;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;wrap&quot;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &lt;div class&#x3D;&quot;box&quot;&gt;&lt;&#x2F;div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;div&gt;</span></pre></td></tr></table></figure></li>
+<li>fixed生成固定定位元素，以浏览器窗口为参考进行定位，主要用在网页的导航栏、返回顶部按钮、网页的侧边栏菜单。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.box&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    position:fixed;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    bottom:100px;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    right:50px;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
+<li>static默认值，没有定位。</li>
+</ol>
 
       
 
