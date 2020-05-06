@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | Hexo</title>
+  <title>机器学习的数学基础 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;05&#x2F;index.html">
+  <meta name="description" content="基本线性代数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习的数学基础">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;06&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本线性代数">
+<meta property="article:published_time" content="2020-05-06T08:42:56.000Z">
+<meta property="article:modified_time" content="2020-05-06T09:20:51.427Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -151,130 +155,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-机器学习的数学基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      机器学习的数学基础
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+
+        
+        <a href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
   	<time datetime="2020-05-06T08:42:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">机器学习的数学基础</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本线性代数"><a href="#基本线性代数" class="headerlink" title="基本线性代数"></a>基本线性代数</h1><a id="more"></a>
+<h2 id="线性代数的数学对象"><a href="#线性代数的数学对象" class="headerlink" title="线性代数的数学对象"></a>线性代数的数学对象</h2><h3 id="1、标量"><a href="#1、标量" class="headerlink" title="1、标量"></a>1、标量</h3><p>标量就是一个单一的数字。</p>
+<h3 id="2、向量"><a href="#2、向量" class="headerlink" title="2、向量"></a>2、向量</h3><p>向量是一个有序的数字数组，可以在一行或一列（行向量、列向量）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"># 向量的定义</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3]]) #行向量</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">matrix_b &#x3D; np.array([[4],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">                     [5],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">                     [6]])  #列向量</span></pre></td></tr></table></figure>
+<h3 id="3、矩阵"><a href="#3、矩阵" class="headerlink" title="3、矩阵"></a>3、矩阵</h3><p>有序二维数组，有行号和列号两个索引。向量也是一个矩阵，但是只有一行（列）。</p>
+<blockquote>
+<p>向量是特殊的矩阵，也需要用二维数组进行定义。</p>
+</blockquote>
+<h2 id="基本运算规则"><a href="#基本运算规则" class="headerlink" title="基本运算规则"></a>基本运算规则</h2><h3 id="1、矩阵与标量运算"><a href="#1、矩阵与标量运算" class="headerlink" title="1、矩阵与标量运算"></a>1、矩阵与标量运算</h3><p>一个矩阵与一个标量进行加减乘除运算，即矩阵中的每个元素分别与标量进行加减乘除运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">                     [4,5,6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">b &#x3D; 2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">matrix_a + b</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">结果：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">array([[3, 4, 5],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">       [6, 7, 8]])</span></pre></td></tr></table></figure>
+<h3 id="2、矩阵与矩阵加减"><a href="#2、矩阵与矩阵加减" class="headerlink" title="2、矩阵与矩阵加减"></a>2、矩阵与矩阵加减</h3><p>两个矩阵必须有相同的尺寸，两个矩阵对应元素分别运算，结果也有相同的尺寸。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">                     [4,5,6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">matrix_b &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">                     [1,2,3]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">matrix_a + matrix_b</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">结果：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">array([[2, 4, 6],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">       [5, 7, 9]])</span></pre></td></tr></table></figure>
+<h3 id="3、矩阵与矩阵点乘（点积）"><a href="#3、矩阵与矩阵点乘（点积）" class="headerlink" title="3、矩阵与矩阵点乘（点积）"></a>3、矩阵与矩阵点乘（点积）</h3><p>两个矩阵的尺寸相同，对应元素分别相乘，运算符是*，或用np.multiply方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">                     [4,5,6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">matrix_b &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">                     [1,2,3]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">print(matrix_a * matrix_b)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">print(np.multiply(matrix_a,matrix_b))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">结果：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">[[ 1  4  9]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"> [ 4 10 18]]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">[[ 1  4  9]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"> [ 4 10 18]]</span></pre></td></tr></table></figure>
+<h3 id="4、矩阵与矩阵叉乘（相乘）"><a href="#4、矩阵与矩阵叉乘（相乘）" class="headerlink" title="4、矩阵与矩阵叉乘（相乘）"></a>4、矩阵与矩阵叉乘（相乘）</h3><p>第一个矩阵的列数与第二个矩阵的行数要相等。结果与第一个矩阵有相同的行数，与第二个矩阵有相同的列数。np.matmul(matrix_a,matrix_b)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">                     [4,5,6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">matrix_b &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">                     [1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">                     [4,5,6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">np.matmul(matrix_a,matrix_b)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">结果：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">array([[15, 21, 27],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       [33, 48, 63]])</span></pre></td></tr></table></figure>
+<h3 id="5、矩阵与向量叉乘"><a href="#5、矩阵与向量叉乘" class="headerlink" title="5、矩阵与向量叉乘"></a>5、矩阵与向量叉乘</h3><p>看作矩阵与矩阵叉乘的特例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">                     [4,5,6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">matrix_b &#x3D; np.array([[7],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">                     [8],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">                     [9]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">np.matmul(matrix_a,matrix_b)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">结果：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">array([[ 50],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       [122]])</span></pre></td></tr></table></figure>
+<h3 id="6、向量与向量叉乘"><a href="#6、向量与向量叉乘" class="headerlink" title="6、向量与向量叉乘"></a>6、向量与向量叉乘</h3><p>看作矩阵与矩阵叉乘的特例。</p>
+<p>行向量×列向量</p>
+<p>列向量×行向量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">matrix_b &#x3D; np.array([[4],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">                     [5],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">                     [6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">np.matmul(matrix_a,matrix_b)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">结果：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">array([[32]])</span></pre></td></tr></table></figure>
+<h3 id="7、矩阵转置"><a href="#7、矩阵转置" class="headerlink" title="7、矩阵转置"></a>7、矩阵转置</h3><p>第一行变成转置矩阵的第一列，第二行变成转置矩阵的第二列。</p>
+<p>一个n×m的矩阵变成m×n的矩阵。</p>
+<p>原矩阵的aij元素等于转置矩阵的aji元素。</p>
+<p>转置矩阵就像沿着45度轴线的矩阵镜像。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">matrix_a &#x3D; np.array([[1,2,3],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">                     [4,5,6]])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">matrix_b &#x3D; matrix_a.T</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">matrix_b</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">结果：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">array([[1, 4],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">       [2, 5],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">       [3, 6]])</span></pre></td></tr></table></figure>
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin2.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-02T15:31:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TensorFlow2.0实战-线性回归问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">TensorFlow2.0实战-线性回归问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本线性代数"><span class="toc-number">1.</span> <span class="toc-text">基本线性代数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性代数的数学对象"><span class="toc-number">1.1.</span> <span class="toc-text">线性代数的数学对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、标量"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、标量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、向量"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、矩阵"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算规则"><span class="toc-number">1.2.</span> <span class="toc-text">基本运算规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、矩阵与标量运算"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、矩阵与标量运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、矩阵与矩阵加减"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、矩阵与矩阵加减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、矩阵与矩阵点乘（点积）"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、矩阵与矩阵点乘（点积）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、矩阵与矩阵叉乘（相乘）"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、矩阵与矩阵叉乘（相乘）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、矩阵与向量叉乘"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、矩阵与向量叉乘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、向量与向量叉乘"><span class="toc-number">1.2.6.</span> <span class="toc-text">6、向量与向量叉乘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、矩阵转置"><span class="toc-number">1.2.7.</span> <span class="toc-text">7、矩阵转置</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-02T00:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/">PHP（二）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-01T01:49:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/">PHP（一）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -297,8 +375,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
