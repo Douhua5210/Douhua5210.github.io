@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>多层神经网络 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="MNIST手写数字识别进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多层神经网络">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;09&#x2F;%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MNIST手写数字识别进阶">
+<meta property="article:published_time" content="2020-05-09T13:56:25.000Z">
+<meta property="article:modified_time" content="2020-05-09T14:11:34.571Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -151,295 +155,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-多层神经网络" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-05-09T14:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/">Keras序列模型</a>
+    <h1 class="article-title" itemprop="name">
+      多层神经网络
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+        
+        <a href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="archive-article-date">
   	<time datetime="2020-05-09T13:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">多层神经网络</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MNIST手写数字识别进阶"><a href="#MNIST手写数字识别进阶" class="headerlink" title="MNIST手写数字识别进阶"></a>MNIST手写数字识别进阶</h1><a id="more"></a>
+<h2 id="1、导入库"><a href="#1、导入库" class="headerlink" title="1、导入库"></a>1、导入库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">import numpy as np</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span></pre></td></tr></table></figure>
+<h2 id="2、获取数据与数据探索"><a href="#2、获取数据与数据探索" class="headerlink" title="2、获取数据与数据探索"></a>2、获取数据与数据探索</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mnist &#x3D; tf.keras.datasets.mnist</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">(train_images,train_labels),(test_images,test_labels) &#x3D; mnist.load_data()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">print(train_images.shape,train_labels.shape)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">print(test_images.shape,test_labels.shape)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">#定义图像可视化函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">def plot_image(image):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    plt.imshow(image.reshape(28,28),cmap&#x3D;&quot;binary&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    plt.show</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">plot_image(train_images[59000])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">print(train_labels[59000])</span></pre></td></tr></table></figure>
+<h2 id="3、划分数据集"><a href="#3、划分数据集" class="headerlink" title="3、划分数据集"></a>3、划分数据集</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">total_num &#x3D; len(train_images) #训练集样本总数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">valid_split &#x3D; 0.2 #验证集比例</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">train_num &#x3D; int(total_num*(1-valid_split)) #训练集数目</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">train_x &#x3D; train_images[:train_num] #前一部分给训练集</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">train_y &#x3D; train_labels[:train_num]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">valid_x &#x3D; train_images[train_num:] #后一部分给验证集</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">valid_y &#x3D; train_labels[train_num:]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">test_x &#x3D; test_images</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">test_y &#x3D; test_labels</span></pre></td></tr></table></figure>
+<h2 id="4、数据塑性"><a href="#4、数据塑性" class="headerlink" title="4、数据塑性"></a>4、数据塑性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#把（28,28）结果拉直成为一行</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">train_x &#x3D; train_x.reshape(-1,784)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">valid_x &#x3D; valid_x.reshape(-1,784)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">test_x &#x3D; test_x.reshape(-1,784)</span></pre></td></tr></table></figure>
+<h2 id="5、特征数据归一化"><a href="#5、特征数据归一化" class="headerlink" title="5、特征数据归一化"></a>5、特征数据归一化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">train_x &#x3D; tf.cast(train_x&#x2F;255,tf.float32)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">valid_x &#x3D; tf.cast(valid_x&#x2F;255,tf.float32)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">test_x &#x3D; tf.cast(test_x&#x2F;255,tf.float32)</span></pre></td></tr></table></figure>
+<h2 id="6、标签数据独热编码"><a href="#6、标签数据独热编码" class="headerlink" title="6、标签数据独热编码"></a>6、标签数据独热编码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">train_y &#x3D; tf.one_hot(train_y,depth&#x3D;10)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">valid_y &#x3D; tf.one_hot(valid_y,depth&#x3D;10)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">test_y &#x3D; tf.one_hot(test_y,depth&#x3D;10)</span></pre></td></tr></table></figure>
+<h2 id="7、定义模型变量"><a href="#7、定义模型变量" class="headerlink" title="7、定义模型变量"></a>7、定义模型变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"># 定义第一层隐藏层的权重和偏置项</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">input_Dim &#x3D; 784</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">H1_NN &#x3D; 64</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">W1 &#x3D; tf.Variable(tf.random.normal([input_Dim,H1_NN],mean&#x3D;0.0,stddev&#x3D;1.0,dtype&#x3D;tf.float32))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">B1 &#x3D; tf.Variable(tf.zeros([H1_NN]),dtype&#x3D;tf.float32)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">#定义输出层权重和偏置项</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">output_Dim &#x3D; 10</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">W2 &#x3D; tf.Variable(tf.random.normal([H1_NN,output_Dim],mean&#x3D;0.0,stddev&#x3D;1.0,dtype&#x3D;tf.float32))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">B2 &#x3D; tf.Variable(tf.zeros([output_Dim]),dtype&#x3D;tf.float32)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">#创建待优化变量列表</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">W &#x3D; [W1,W2]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">B &#x3D; [B1,B2]</span></pre></td></tr></table></figure>
+<h2 id="8、构建模型"><a href="#8、构建模型" class="headerlink" title="8、构建模型"></a>8、构建模型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#定义模型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">def model(x,w,b):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    x &#x3D; tf.matmul(x,W[0]) + B[0]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    x &#x3D; tf.nn.relu(x)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    x &#x3D; tf.matmul(x,W[1]) + B[1]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    pred &#x3D; tf.nn.softmax(x)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    return pred</span></pre></td></tr></table></figure>
+<h2 id="9、定义交叉熵损失函数"><a href="#9、定义交叉熵损失函数" class="headerlink" title="9、定义交叉熵损失函数"></a>9、定义交叉熵损失函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">def loss(x,y,w,b):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    pred &#x3D; model(x,w,b) # 计算预测值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    loss_ &#x3D; tf.keras.losses.categorical_crossentropy(y_true&#x3D;y,y_pred&#x3D;pred)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    return tf.reduce_mean(loss_) #求均值，得均方差</span></pre></td></tr></table></figure>
+<h2 id="10、设置训练超参数"><a href="#10、设置训练超参数" class="headerlink" title="10、设置训练超参数"></a>10、设置训练超参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">training_epochs &#x3D; 20 #训练轮数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">learning_rate &#x3D; 0.001 #学习率</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">batch_size &#x3D; 50 #单次训练样本数（批次大小）</span></pre></td></tr></table></figure>
+<h2 id="11、定义计算梯度函数"><a href="#11、定义计算梯度函数" class="headerlink" title="11、定义计算梯度函数"></a>11、定义计算梯度函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#计算样本[x,y]在参数[w,b]上的梯度</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">def grad(x,y,w,b):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    with tf.GradientTape() as tape:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        loss_ &#x3D; loss(x,y,w,b)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    return tape.gradient(loss_,[w,b]) #返回梯度向量</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">#tf.GradientTape()这一上下文管理器封装需要求导的计算步骤，并使用其gradient()方法求导</span></pre></td></tr></table></figure>
+<h2 id="12、选择优化器"><a href="#12、选择优化器" class="headerlink" title="12、选择优化器"></a>12、选择优化器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#Adam优化器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">optimizer &#x3D; tf.keras.optimizers.Adam(learning_rate&#x3D;learning_rate)</span></pre></td></tr></table></figure>
+<h2 id="13、定义准确率函数"><a href="#13、定义准确率函数" class="headerlink" title="13、定义准确率函数"></a>13、定义准确率函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">def accuracy(x,y,w,b):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    pred &#x3D; model(x,w,b) #计算预测值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    #检查预测类别与实际类别的匹配情况</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    correct_prediction &#x3D; tf.equal(tf.argmax(pred,1),tf.argmax(y,1))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    #准确率，将布尔值转换为浮点数，并计算平均值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    return tf.reduce_mean(tf.cast(correct_prediction,tf.float32))</span></pre></td></tr></table></figure>
+<h2 id="14、模型训练"><a href="#14、模型训练" class="headerlink" title="14、模型训练"></a>14、模型训练</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">total_step &#x3D; int(train_num&#x2F;batch_size) #一轮训练有多少批次</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">loss_list_train &#x3D; [] #训练值的loss值列表</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">loss_list_valid &#x3D; [] #验证值的loss值列表</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">acc_list_train &#x3D; [] #训练准确率列表</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">acc_list_valid &#x3D; [] #验证准确率列表</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">for epoch in range(training_epochs):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    for step in range(total_step):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        xs &#x3D; train_x[step*batch_size:(step+1)*batch_size] #取出当前批次的数据</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        ys &#x3D; train_y[step*batch_size:(step+1)*batch_size]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        grads &#x3D; grad(xs,ys,W,B) #根据当前批次的数据计算梯度</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        optimizer.apply_gradients(zip(grads,W+B)) #优化器根据梯度自动调整变量</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    loss_train &#x3D; loss(train_x,train_y,W,B).numpy() #计算当前轮训练结束的训练集损失</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    loss_valid &#x3D; loss(valid_x,valid_y,W,B).numpy() #计算当前轮训练结束的验证集损失</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    acc_train &#x3D; accuracy(train_x,train_y,W,B).numpy() #计算当前轮训练结束的训练集的准确率</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    acc_valid &#x3D; accuracy(valid_x,valid_y,W,B).numpy() #计算当前轮训练结束的验证集的准确率</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    loss_list_train.append(loss_train)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    loss_list_valid.append(loss_valid)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    acc_list_train.append(acc_train)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    acc_list_valid.append(acc_valid)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    print(&quot;epoch&#x3D;&#123;:3d&#125;,train_loss&#x3D;&#123;:.4f&#125;,train_acc&#x3D;&#123;:.4f&#125;,valid_loss&#x3D;&#123;:.4f&#125;,valid_acc&#x3D;&#123;:.4f&#125;&quot;.format(epoch+1,loss_train,acc_train,loss_valid,acc_valid))</span></pre></td></tr></table></figure>
+<h2 id="15、损失可视化"><a href="#15、损失可视化" class="headerlink" title="15、损失可视化"></a>15、损失可视化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">plt.xlabel(&quot;Epochs&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">plt.ylabel(&quot;Loss&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">plt.plot(loss_list_train,&#39;blue&#39;,label&#x3D;&quot;Train loss&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">plt.plot(loss_list_valid,&#39;red&#39;,label&#x3D;&quot;Valid loss&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">plt.legend(loc&#x3D;1)</span></pre></td></tr></table></figure>
+<h2 id="16、准确率可视化"><a href="#16、准确率可视化" class="headerlink" title="16、准确率可视化"></a>16、准确率可视化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">plt.xlabel(&quot;Epochs&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">plt.ylabel(&quot;Acc&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">plt.plot(acc_list_train,&#39;blue&#39;,label&#x3D;&quot;Train acc&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">plt.plot(acc_list_valid,&#39;red&#39;,label&#x3D;&quot;Valid acc&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">plt.legend(loc&#x3D;1)</span></pre></td></tr></table></figure>
+<h2 id="17、评估模型"><a href="#17、评估模型" class="headerlink" title="17、评估模型"></a>17、评估模型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#在测试集上评估模型的准确率</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">acc_test &#x3D; accuracy(test_x,test_y,W,B).numpy()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">print(&quot;test accuracy:&quot;,acc_test)</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#定义预测函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">def predict(x,w,b):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    pred &#x3D; model(x,w,b)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    result &#x3D; tf.argmax(pred,1).numpy()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    return result</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">pred_test &#x3D; predict(test_x,W,B)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">pred_test[0]</span></pre></td></tr></table></figure>
+<p>后话：</p>
+<p>相对于只有一层输入和一层输出的模型，这次单隐藏层模型的实现只有两个地方需要关注。第一个是模型变量的定义，尤其关注每一层权重和偏置项的shape。第二个是模型的定义，每一层的输入与该层偏置项的叉乘，以及激活函数的选择。学会了单隐藏层模型，可以类似推广到多层模型的实现。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin2.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/%E5%88%86%E7%B1%BB%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-08T04:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Keras序列模型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/08/%E5%88%86%E7%B1%BB%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TensorFlow2.0实战-分类应用入门</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/%E5%88%86%E7%B1%BB%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/">TensorFlow2.0实战-分类应用入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MNIST手写数字识别进阶"><span class="toc-number">1.</span> <span class="toc-text">MNIST手写数字识别进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、导入库"><span class="toc-number">1.1.</span> <span class="toc-text">1、导入库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、获取数据与数据探索"><span class="toc-number">1.2.</span> <span class="toc-text">2、获取数据与数据探索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、划分数据集"><span class="toc-number">1.3.</span> <span class="toc-text">3、划分数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、数据塑性"><span class="toc-number">1.4.</span> <span class="toc-text">4、数据塑性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、特征数据归一化"><span class="toc-number">1.5.</span> <span class="toc-text">5、特征数据归一化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、标签数据独热编码"><span class="toc-number">1.6.</span> <span class="toc-text">6、标签数据独热编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、定义模型变量"><span class="toc-number">1.7.</span> <span class="toc-text">7、定义模型变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、构建模型"><span class="toc-number">1.8.</span> <span class="toc-text">8、构建模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、定义交叉熵损失函数"><span class="toc-number">1.9.</span> <span class="toc-text">9、定义交叉熵损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10、设置训练超参数"><span class="toc-number">1.10.</span> <span class="toc-text">10、设置训练超参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11、定义计算梯度函数"><span class="toc-number">1.11.</span> <span class="toc-text">11、定义计算梯度函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12、选择优化器"><span class="toc-number">1.12.</span> <span class="toc-text">12、选择优化器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、定义准确率函数"><span class="toc-number">1.13.</span> <span class="toc-text">13、定义准确率函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14、模型训练"><span class="toc-number">1.14.</span> <span class="toc-text">14、模型训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15、损失可视化"><span class="toc-number">1.15.</span> <span class="toc-text">15、损失可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16、准确率可视化"><span class="toc-number">1.16.</span> <span class="toc-text">16、准确率可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、评估模型"><span class="toc-number">1.17.</span> <span class="toc-text">17、评估模型</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/TensorFlow2-0%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/" class="archive-article-date">
-  	<time datetime="2020-05-07T11:45:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/TensorFlow2-0%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/">TensorFlow2.0实战-线性回归问题2</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-05-06T08:42:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">机器学习的数学基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-02T15:31:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">TensorFlow2.0实战-线性回归问题1</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-02T00:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/">PHP（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-01T01:49:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/">PHP（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/NumPy/" class="archive-article-date">
-  	<time datetime="2020-04-18T13:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/NumPy/">NumPy</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-16T04:46:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/">Python（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +379,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>Keras序列模型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="使用Keras序列模型建模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keras序列模型">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;09&#x2F;Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用Keras序列模型建模">
+<meta property="article:published_time" content="2020-05-09T14:20:27.000Z">
+<meta property="article:modified_time" content="2020-05-09T14:58:09.621Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -151,295 +155,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Keras序列模型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Keras序列模型
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+
+        
+        <a href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
   	<time datetime="2020-05-09T14:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/">Keras序列模型</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用Keras序列模型建模"><a href="#使用Keras序列模型建模" class="headerlink" title="使用Keras序列模型建模"></a>使用Keras序列模型建模</h1><a id="more"></a>
+<h2 id="Keras序列模型建模的一般步骤"><a href="#Keras序列模型建模的一般步骤" class="headerlink" title="Keras序列模型建模的一般步骤"></a>Keras序列模型建模的一般步骤</h2><p>1、创建一个Sequential模型；</p>
+<p>2、根据需要，通过“add()”方法在模型中添加所需要的神经网络层，完成模型构建；</p>
+<p>3、编译模型，通过“compile()”方法定义模型训练模式；</p>
+<p>4、训练模型，通过“fit()”方法进行模型训练；</p>
+<p>5、评估模型，通过“evaluate()”方法进行模型评估；</p>
+<p>6、应用模型，通过“predict()”进行模型预测。</p>
+<h2 id="MNIST手写数字识别案例"><a href="#MNIST手写数字识别案例" class="headerlink" title="MNIST手写数字识别案例"></a>MNIST手写数字识别案例</h2><h3 id="1、导入库"><a href="#1、导入库" class="headerlink" title="1、导入库"></a>1、导入库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">import numpy as np</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">print(tf.__version__)</span></pre></td></tr></table></figure>
+<h3 id="2、导入数据"><a href="#2、导入数据" class="headerlink" title="2、导入数据"></a>2、导入数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mnist &#x3D; tf.keras.datasets.mnist</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">(train_images,train_labels),(test_images,test_labels) &#x3D; mnist.load_data()</span></pre></td></tr></table></figure>
+<h3 id="3、特征数据标准化"><a href="#3、特征数据标准化" class="headerlink" title="3、特征数据标准化"></a>3、特征数据标准化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">train_images &#x3D; train_images&#x2F;255.0</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">test_images &#x3D; test_images&#x2F;255.0</span></pre></td></tr></table></figure>
+<h3 id="4、标签数据独热编码"><a href="#4、标签数据独热编码" class="headerlink" title="4、标签数据独热编码"></a>4、标签数据独热编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">train_labels_ohe &#x3D; tf.one_hot(train_labels,depth&#x3D;10).numpy()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">test_labels_ohe &#x3D; tf.one_hot(test_labels,depth&#x3D;10).numpy()</span></pre></td></tr></table></figure>
+<h3 id="5、建立序列模型Sequential"><a href="#5、建立序列模型Sequential" class="headerlink" title="5、建立序列模型Sequential"></a>5、建立序列模型Sequential</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">model &#x3D; tf.keras.models.Sequential()</span></pre></td></tr></table></figure>
+<h3 id="6、添加输入层（平坦层，Flatten）"><a href="#6、添加输入层（平坦层，Flatten）" class="headerlink" title="6、添加输入层（平坦层，Flatten）"></a>6、添加输入层（平坦层，Flatten）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Flatten(input_shape&#x3D;(28,28)))</span></pre></td></tr></table></figure>
+<h3 id="7、添加隐藏层（密集层，Dense）"><a href="#7、添加隐藏层（密集层，Dense）" class="headerlink" title="7、添加隐藏层（密集层，Dense）"></a>7、添加隐藏层（密集层，Dense）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#添加全连接层1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Dense(units&#x3D;64,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">                                kernel_initializer&#x3D;&#39;normal&#39;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">                                activation&#x3D;&#39;relu&#39;))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">#添加全连接层2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Dense(units&#x3D;32,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">                                kernel_initializer&#x3D;&#39;normal&#39;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                                activation&#x3D;&#39;relu&#39;))</span></pre></td></tr></table></figure>
+<h3 id="8、添加输出层"><a href="#8、添加输出层" class="headerlink" title="8、添加输出层"></a>8、添加输出层</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Dense(10,activation&#x3D;&#39;softmax&#39;))</span></pre></td></tr></table></figure>
+<h3 id="9、输出模型摘要"><a href="#9、输出模型摘要" class="headerlink" title="9、输出模型摘要"></a>9、输出模型摘要</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">model.summary()</span></pre></td></tr></table></figure>
+<h3 id="10、定义训练模式"><a href="#10、定义训练模式" class="headerlink" title="10、定义训练模式"></a>10、定义训练模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">model.compile(optimizer &#x3D; &#39;adam&#39;, #优化器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">             loss &#x3D; &#39;categorical_crossentropy&#39;, #损失函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">             metrics &#x3D; [&#39;accuracy&#39;]) #评估模型的方式</span></pre></td></tr></table></figure>
+<h3 id="11、模型训练"><a href="#11、模型训练" class="headerlink" title="11、模型训练"></a>11、模型训练</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#设置训练参数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">train_epochs &#x3D; 10 #训练轮数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">batch_size &#x3D; 30 #批次大小</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">train_history &#x3D; model.fit(train_images,train_labels_ohe,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">                         validation_split &#x3D; 0.2,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">                         epochs &#x3D; train_epochs,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">                         batch_size &#x3D; batch_size,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                         verbose &#x3D; 2)</span></pre></td></tr></table></figure>
+<h3 id="12、查看训练过程中的数据"><a href="#12、查看训练过程中的数据" class="headerlink" title="12、查看训练过程中的数据"></a>12、查看训练过程中的数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">train_history.history</span></pre></td></tr></table></figure>
+<h3 id="13、评估模型"><a href="#13、评估模型" class="headerlink" title="13、评估模型"></a>13、评估模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">test_loss,test_acc &#x3D; model.evaluate(test_images,test_labels_ohe,verbose &#x3D; 2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">print(test_loss,test_acc)</span></pre></td></tr></table></figure>
+<h3 id="14、应用模型"><a href="#14、应用模型" class="headerlink" title="14、应用模型"></a>14、应用模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">test_pred &#x3D; model.predict(test_images)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">test_pred.shape</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">#预测值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">np.argmax(test_pred[0])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">#直接进行分类预测</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">test_pred &#x3D; model.predict_classes(test_images)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">test_pred.shape</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">test_pred[0]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">#标签值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">test_labels[0]</span></pre></td></tr></table></figure>
+<h2 id="一次性建模"><a href="#一次性建模" class="headerlink" title="一次性建模"></a>一次性建模</h2><p>以上建模也可以一次性完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#一次性建立Sequential线性堆叠模型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">model &#x3D; tf.keras.models.Sequential([</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    tf.keras.layers.Flatten(input_shape&#x3D;(28,28)),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    tf.keras.layers.Dense(64,activation&#x3D;tf.nn.relu),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    tf.keras.layers.Dense(32,activation&#x3D;tf.nn.relu),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    tf.keras.layers.Dense(10,activation&#x3D;tf.nn.softmax)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">])</span></pre></td></tr></table></figure>
+<h2 id="定义训练模式"><a href="#定义训练模式" class="headerlink" title="定义训练模式"></a>定义训练模式</h2><p>tf.keras.Model.compile() 接受3个重要的参数：</p>
+<ul>
+<li>optimizer：优化器，可从tf.keras.optimizers中选择；</li>
+<li>loss：损失函数，可从tf.keras.losses中选择；</li>
+<li>metrics：评估指标，可从tf.keras.metrics中选择。<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2>tf.keras.Model.compile() 常见参数：</li>
+<li>x：训练数据；</li>
+<li>y：标签数据；</li>
+<li>epochs：训练轮数；</li>
+<li>batch_size：批次大小；</li>
+<li>validation_data：验证数据的比例；</li>
+<li>verbose：训练过程的日志信息显示，0为不在标准输出流输出日志信息，1为输出进度条记录，2为每个epoch输出一行记录。<h2 id="面向整数标签的序列模型构建与训练"><a href="#面向整数标签的序列模型构建与训练" class="headerlink" title="面向整数标签的序列模型构建与训练"></a>面向整数标签的序列模型构建与训练</h2>针对采用整数类型的标签类别数据，Keras提供了更为简便的方法，无序针对这些标签数据先进性独热编码就能直接使用。</li>
+</ul>
+<blockquote>
+<p>采用<code>sparse_categorical_crossentropy</code>损失函数替换<code>categorical_crossentropy</code>损失函数。</p>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin2.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多层神经网络</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">多层神经网络</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Keras序列模型建模"><span class="toc-number">1.</span> <span class="toc-text">使用Keras序列模型建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Keras序列模型建模的一般步骤"><span class="toc-number">1.1.</span> <span class="toc-text">Keras序列模型建模的一般步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MNIST手写数字识别案例"><span class="toc-number">1.2.</span> <span class="toc-text">MNIST手写数字识别案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、导入库"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、导入库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、导入数据"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、导入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、特征数据标准化"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、特征数据标准化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、标签数据独热编码"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、标签数据独热编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、建立序列模型Sequential"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、建立序列模型Sequential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、添加输入层（平坦层，Flatten）"><span class="toc-number">1.2.6.</span> <span class="toc-text">6、添加输入层（平坦层，Flatten）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、添加隐藏层（密集层，Dense）"><span class="toc-number">1.2.7.</span> <span class="toc-text">7、添加隐藏层（密集层，Dense）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、添加输出层"><span class="toc-number">1.2.8.</span> <span class="toc-text">8、添加输出层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、输出模型摘要"><span class="toc-number">1.2.9.</span> <span class="toc-text">9、输出模型摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、定义训练模式"><span class="toc-number">1.2.10.</span> <span class="toc-text">10、定义训练模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11、模型训练"><span class="toc-number">1.2.11.</span> <span class="toc-text">11、模型训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12、查看训练过程中的数据"><span class="toc-number">1.2.12.</span> <span class="toc-text">12、查看训练过程中的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13、评估模型"><span class="toc-number">1.2.13.</span> <span class="toc-text">13、评估模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14、应用模型"><span class="toc-number">1.2.14.</span> <span class="toc-text">14、应用模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一次性建模"><span class="toc-number">1.3.</span> <span class="toc-text">一次性建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义训练模式"><span class="toc-number">1.4.</span> <span class="toc-text">定义训练模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型训练"><span class="toc-number">1.5.</span> <span class="toc-text">模型训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向整数标签的序列模型构建与训练"><span class="toc-number">1.6.</span> <span class="toc-text">面向整数标签的序列模型构建与训练</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/%E5%88%86%E7%B1%BB%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-08T04:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/%E5%88%86%E7%B1%BB%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/">TensorFlow2.0实战-分类应用入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/TensorFlow2-0%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/" class="archive-article-date">
-  	<time datetime="2020-05-07T11:45:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/TensorFlow2-0%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/">TensorFlow2.0实战-线性回归问题2</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-05-06T08:42:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">机器学习的数学基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-02T15:31:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">TensorFlow2.0实战-线性回归问题1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-02T00:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/">PHP（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-01T01:49:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/">PHP（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/18/NumPy/" class="archive-article-date">
-  	<time datetime="2020-04-18T13:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/18/NumPy/">NumPy</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-16T04:46:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/">Python（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +387,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
