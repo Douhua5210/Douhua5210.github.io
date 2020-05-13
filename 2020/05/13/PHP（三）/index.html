@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>PHP（三） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="日期和时间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP（三）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;13&#x2F;PHP%EF%BC%88%E4%B8%89%EF%BC%89&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="日期和时间">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;13&#x2F;Yw81W8.png">
+<meta property="article:published_time" content="2020-05-13T14:26:33.000Z">
+<meta property="article:modified_time" content="2020-05-13T14:33:05.787Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;13&#x2F;Yw81W8.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -151,34 +157,141 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-NumPy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-PHP（三）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/NumPy/">NumPy</a>
+    <h1 class="article-title" itemprop="name">
+      PHP（三）
     </h1>
   
 
         
-        <a href="/2020/04/18/NumPy/" class="archive-article-date">
-  	<time datetime="2020-04-18T13:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
+        <a href="/2020/05/13/PHP%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-05-13T14:26:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="NumPy科学计算库的基本知识"><a href="#NumPy科学计算库的基本知识" class="headerlink" title="NumPy科学计算库的基本知识"></a>NumPy科学计算库的基本知识</h1>
-        
-          <a class="article-more-a" href="/2020/04/18/NumPy/#more">more >></a>
-        
+        <h1 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h1><a id="more"></a>
+
+<p>​        在Web开发中对日期和时间的使用与处理是必不可少的。例如，在电子商务网站上查看最新商品、在论坛中查看最新主题、定时删除Session等。这些都与时间密不可分。还有世界上各个地区的时间也不尽相同，在PHP中提供了本地化日期和时间的概念。</p>
+<h3 id="一、系统时区设置"><a href="#一、系统时区设置" class="headerlink" title="一、系统时区设置"></a>一、系统时区设置</h3><h4 id="1、时区划分"><a href="#1、时区划分" class="headerlink" title="1、时区划分"></a>1、时区划分</h4><p>​        地球氛围24个时区、每个时区都有自己的本地时间。在国际上通用的为UTC，UTC和格林尼治标准时间都是英国伦敦的本地时间。</p>
+<h4 id="2、时区设置"><a href="#2、时区设置" class="headerlink" title="2、时区设置"></a>2、时区设置</h4><p>​        在PHP中默认设置的是标准的格林尼治时间，所以获取本地当前时间必须更改PHP语言中的时区设置。</p>
+<p>更改PHP语言中的时区设置有两种方法：</p>
+<p>（1）修改php.ini文件的设置，找到[data]下的“data.timezone=”选项，修改为“data.timezone=Asia/Shanghai”,然后重新启动Apache服务器</p>
+<p>（2）在应用程序中，在使用时间日期函数之前添加如下函数：</p>
+<p>data_default_timezone_set(timezone)</p>
+<p>参数timezone为PHP可识别的时区名称；设置完成后，data()函数变可以正常使用，不会出现时差问题。</p>
+<h3 id="二、日期与时间函数"><a href="#二、日期与时间函数" class="headerlink" title="二、日期与时间函数"></a>二、日期与时间函数</h3><p>PHP提供了大量的内置函数，来供开发人员使用，下面我们来看几个常用的函数。</p>
+<h4 id="1、获得本地化时间戳"><a href="#1、获得本地化时间戳" class="headerlink" title="1、获得本地化时间戳"></a>1、获得本地化时间戳</h4><p><strong>mktime()函数：将一个时间转化为UNIX的时间戳值。</strong></p>
+<p>格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">int mktime(int hour,int minute,int second,int month,int day,int year)</span></pre></td></tr></table></figure>
+
+<p>具体参数为：</p>
+<p>hour：小时数；minute：分钟数；second：秒数；month：月份数；day：天数；year：年分数。</p>
+<p>具体用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    echo &quot;指定时间的时间戳：&quot;.mktime(12,23,56,12,10,2012).&quot;&lt;p&gt;&quot;;&#x2F;&#x2F;输出指定时间的时间戳</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    echo &quot;指定日期为：&quot;.date(&quot;Y-m-d&quot;,mktime(12,23,56,12,10,2012)).&quot;&lt;p&gt;&quot;;&#x2F;&#x2F;使用date函数输出格式化后的日期</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    echo &quot;指定时间为：&quot;.date(&quot;H:i:s&quot;,mktime(12,23,56,12,10,2012));&#x2F;&#x2F;使用date函数输出格式化后的时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">?&gt;</span></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、获取当前时间戳"><a href="#2、获取当前时间戳" class="headerlink" title="2、获取当前时间戳"></a>2、获取当前时间戳</h4><p><strong>time()函数：获取当前的UNIX时间戳，返回值为从UNIX纪元（1970年1月1日 00:00:00）到当前时间的秒数</strong>。</p>
+<p>语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">int time(void)</span></pre></td></tr></table></figure>
+
+<p>举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    $nextWeek &#x3D; time() + (7 * 24 * 60 * 60);      	&#x2F;&#x2F;7 days; 24 hours; 60 mins; 60secs</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    echo &#39;Now: &#39;. date(&#39;Y-m-d&#39;) .&quot;&lt;p&gt;&quot;;					&#x2F;&#x2F;输出当前日期</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    echo &#39;Next Week: &#39;. date(&#39;Y-m-d H:i:s&#39;, $nextWeek);	&#x2F;&#x2F;输出变量NextWeek的日期</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">?&gt;</span></pre></td></tr></table></figure>
+
+<h4 id="3、获取当前日期和时间"><a href="#3、获取当前日期和时间" class="headerlink" title="3、获取当前日期和时间"></a>3、获取当前日期和时间</h4><p><strong>data()函数：获取当前的日期和时间。</strong>  </p>
+<p>语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">data(string format,int timestamp)</span></pre></td></tr></table></figure>
+
+<p>参数：format参数可以按照指定的格式输出日期时间；timestamp参数是可选的，如果省略，则使用当前时间。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">echo &#39;Now: &#39;. date(&#39;Y-m-d H:i:s&#39;);</span></pre></td></tr></table></figure>
+
+<h4 id="4、获取日期时间"><a href="#4、获取日期时间" class="headerlink" title="4、获取日期时间"></a>4、获取日期时间</h4><p>getdata()函数返回数组形式的日期和时间信息，如果没有时间戳，则以当前时间为准。</p>
+<p>getdata()函数返回的关联数组元素说明：</p>
+<p><img src="https://s1.ax1x.com/2020/05/13/Yw81W8.png" alt="1"></p>
+<p>举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    $arr &#x3D; getdate();&#x2F;&#x2F;使用getdate()函数将当前信息保存</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    echo $arr[&#39;year&#39;].&quot;-&quot;.$arr[&#39;mon&#39;].&quot;-&quot;.$arr[&#39;mday&#39;].&quot; &quot;;&#x2F;&#x2F;返回当前的日期信息</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    echo $arr[&#39;hours&#39;].&quot;:&quot;.$arr[&#39;minutes&#39;].&quot;:&quot;.$arr[&#39;seconds&#39;].&quot; &quot;.$arr[&#39;weekday&#39;];&#x2F;&#x2F;返回当前的时间信息</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    echo &quot;&lt;p&gt;&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    echo &quot;Today is the $arr[yday]th of year&quot;;&#x2F;&#x2F;输出今天是一年中的第几天</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">?&gt;</span></pre></td></tr></table></figure>
+
+<h4 id="5、检验日期的有效性"><a href="#5、检验日期的有效性" class="headerlink" title="5、检验日期的有效性"></a>5、检验日期的有效性</h4><p><strong>checkdate()函数：日期检查函数</strong></p>
+<p>格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">bool checkdate(int month,int day,int year)</span></pre></td></tr></table></figure>
+
+<p>举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    $year &#x3D; 2008;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    $month &#x3D; 2;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    $day1 &#x3D; 29;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    $day2 &#x3D; 30;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    var_dump(checkdate($month,$day1,$year));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    var_dump(checkdate($month,$day2,$year));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">?&gt;</span></pre></td></tr></table></figure>
+
+<p>第一个返回true  第二个返回false</p>
+<h4 id="6、显示本地化的日期和时间"><a href="#6、显示本地化的日期和时间" class="headerlink" title="6、显示本地化的日期和时间"></a>6、显示本地化的日期和时间</h4><p><strong>（1）setlocale()函数：设置地区信息</strong></p>
+<p>语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">setlocale(constant,location)</span></pre></td></tr></table></figure>
+
+<p><em>constant</em>：必需。规定应该设置什么地区信息。</p>
+<p><em>location</em>：必需。规定把地区信息设置为哪个国家/地区。默认是环境变量的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">strftime(format,timestamp);</span></pre></td></tr></table></figure>
+
+<p>format：必需。规定如何返回结果。</p>
+<p><strong>（2）strftime() 函数根据区域设置格式化本地日期和时间。</strong></p>
+<p>语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">strftime(format,timestamp);</span></pre></td></tr></table></figure>
+
+<p>fomart：必需。规定如何返回结果。</p>
+<p>timestamp：可选。规定代表需要格式化的日期/时间的 Unix 时间戳。默认为当前时间</p>
+<h4 id="7、将日期和时间解析为UNIX时间戳"><a href="#7、将日期和时间解析为UNIX时间戳" class="headerlink" title="7、将日期和时间解析为UNIX时间戳"></a>7、将日期和时间解析为UNIX时间戳</h4><p><strong>strtotime() 函数将任何英文文本的日期或时间描述解析为 Unix 时间戳。</strong></p>
+<p>语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">strtotime(time,now);</span></pre></td></tr></table></figure>
+
+<p>time：必需。规定日期/时间字符串。</p>
+<p>now：可选。规定用来计算返回值的时间戳。如果省略该参数，则使用当前时间。</p>
+<p>实例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	echo strtotime (&quot;now&quot;), &quot;\n&quot;;									&#x2F;&#x2F;当前时间的时间戳</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    echo &quot;输出时间:&quot;.date(&quot;Y-m-d H:i:s&quot;,strtotime (&quot;now&quot;)),&quot;&lt;br&gt;&quot;;	 &#x2F;&#x2F;输出当前时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    echo strtotime (&quot;21 May 2019&quot;), &quot;\n&quot;;							&#x2F;&#x2F;输出指定日期的时间戳</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    echo &quot;输出时间:&quot;.date(&quot;Y-m-d H:i:s&quot;,strtotime (&quot;21 May 2019&quot;)),&quot;&lt;br&gt;&quot;;&#x2F;&#x2F;输出指定日期的时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">?&gt;</span></pre></td></tr></table></figure>
+
+<h3 id="三、综合应用小案例"><a href="#三、综合应用小案例" class="headerlink" title="三、综合应用小案例"></a>三、综合应用小案例</h3><h4 id="1、比较两个时间的大小"><a href="#1、比较两个时间的大小" class="headerlink" title="1、比较两个时间的大小"></a>1、比较两个时间的大小</h4><p>实例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	$time1 &#x3D; date(&quot;Y-m-d H:i:s&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	$time2 &#x3D; &quot;20018-6-1 15:30:00&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	echo &quot;变量\$time1的时间为：&quot;.$time1.&quot;&lt;br&gt;&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	echo &quot;变量\$time2的时间为：&quot;.$time2.&quot;&lt;p&gt;&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	if(strtotime($time1) - strtotime($time2) &lt; 0)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		echo &quot;\$time1 早于 \$time2 &quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	&#125;else&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">		echo &quot;\$time2 早于 $time1 &quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">?&gt;</span></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、实现倒计时功能"><a href="#2、实现倒计时功能" class="headerlink" title="2、实现倒计时功能"></a>2、实现倒计时功能</h4><p>开发一个倒计时小程序。实例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;?php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	$time1&#x3D;strtotime(date(&quot;Y-m-d H:i:s&quot;));          &#x2F;&#x2F;当前系统时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	$time2&#x3D;strtotime(date(&quot;2020-10-1 00:00:00&quot;));	&#x2F;&#x2F;十一放假的时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	$time3&#x3D;strtotime(date(&quot;2021-1-1&quot;));				&#x2F;&#x2F;元旦放假的时间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	&#x2F;&#x2F; ceil():四舍五入，向上取整</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	$sub1&#x3D;ceil(($time2-$time1) &#x2F; 3600);				&#x2F;&#x2F;(60秒 * 60分)  每小时3600秒</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	$sub2&#x3D;ceil(($time3-$time1) &#x2F; 86400);			&#x2F;&#x2F;(60秒*60分*24小时)  每天86400秒</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">	echo &quot;离十一放假还有&lt;font color&#x3D;red&gt; $sub1 &lt;&#x2F;font&gt;小时！！！&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">	echo &quot;&lt;p&gt;&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">	echo &quot;离元旦放假还有&lt;font color&#x3D;red&gt; $sub2 &lt;&#x2F;font&gt;天！！！&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">?&gt;</span></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin2.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,16 +300,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/NumPy/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/PHP%EF%BC%88%E4%B8%89%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/13/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TensorFlow2.0卷积神经网络与应用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -211,472 +383,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/">Python（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-16T04:46:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Python语言基础（2）"><a href="#Python语言基础（2）" class="headerlink" title="Python语言基础（2）"></a>Python语言基础（2）</h1>
-        
-          <a class="article-more-a" href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/Python%EF%BC%88%E4%BA%8C%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#日期和时间"><span class="toc-number">1.</span> <span class="toc-text">日期和时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、系统时区设置"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、系统时区设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、时区划分"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">1、时区划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、时区设置"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">2、时区设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、日期与时间函数"><span class="toc-number">1.0.2.</span> <span class="toc-text">二、日期与时间函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、获得本地化时间戳"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">1、获得本地化时间戳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、获取当前时间戳"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2、获取当前时间戳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、获取当前日期和时间"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">3、获取当前日期和时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、获取日期时间"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">4、获取日期时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、检验日期的有效性"><span class="toc-number">1.0.2.5.</span> <span class="toc-text">5、检验日期的有效性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、显示本地化的日期和时间"><span class="toc-number">1.0.2.6.</span> <span class="toc-text">6、显示本地化的日期和时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、将日期和时间解析为UNIX时间戳"><span class="toc-number">1.0.2.7.</span> <span class="toc-text">7、将日期和时间解析为UNIX时间戳</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、综合应用小案例"><span class="toc-number">1.0.3.</span> <span class="toc-text">三、综合应用小案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、比较两个时间的大小"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">1、比较两个时间的大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、实现倒计时功能"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">2、实现倒计时功能</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Python（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/Python%EF%BC%88%E4%B8%80%EF%BC%89/">python（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/16/Python%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-16T03:08:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Python语言基础（1）"><a href="#Python语言基础（1）" class="headerlink" title="Python语言基础（1）"></a>Python语言基础（1）</h1>
-        
-          <a class="article-more-a" href="/2020/04/16/Python%EF%BC%88%E4%B8%80%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/Python%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前端-js（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/13/%E5%89%8D%E7%AB%AF-js%EF%BC%88%E4%B8%80%EF%BC%89/">前端-js（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/13/%E5%89%8D%E7%AB%AF-js%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-13T12:07:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript基础"><a href="#JavaScript基础" class="headerlink" title="JavaScript基础"></a>JavaScript基础</h1>
-        
-          <a class="article-more-a" href="/2020/04/13/%E5%89%8D%E7%AB%AF-js%EF%BC%88%E4%B8%80%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/13/%E5%89%8D%E7%AB%AF-js%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前端-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/%E5%89%8D%E7%AB%AF-CSS/">前端-CSS</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/%E5%89%8D%E7%AB%AF-CSS/" class="archive-article-date">
-  	<time datetime="2020-03-30T06:07:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="css基础"><a href="#css基础" class="headerlink" title="css基础"></a>css基础</h1>
-        
-          <a class="article-more-a" href="/2020/03/30/%E5%89%8D%E7%AB%AF-CSS/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/%E5%89%8D%E7%AB%AF-CSS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前端-HTML" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/27/%E5%89%8D%E7%AB%AF-HTML/">前端-HTML</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/27/%E5%89%8D%E7%AB%AF-HTML/" class="archive-article-date">
-  	<time datetime="2020-03-27T08:14:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="HTML基础"><a href="#HTML基础" class="headerlink" title="HTML基础"></a>HTML基础</h1>
-        
-          <a class="article-more-a" href="/2020/03/27/%E5%89%8D%E7%AB%AF-HTML/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/27/%E5%89%8D%E7%AB%AF-HTML/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-01-08T08:54:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Markdown文档编写规则"><a href="#Markdown文档编写规则" class="headerlink" title="Markdown文档编写规则"></a>Markdown文档编写规则</h1>
-        
-          <a class="article-more-a" href="/2020/01/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/10/hello-world/" class="archive-article-date">
-  	<time datetime="2019-12-10T08:32:16.404Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to [Hexo]<br>(<a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a>)! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-        
-          <a class="article-more-a" href="/2019/12/10/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/10/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -699,8 +431,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
