@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | Hexo</title>
+  <title>TensorFlow2.0卷积神经网络与应用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;05&#x2F;index.html">
+  <meta name="description" content="卷积神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow2.0卷积神经网络与应用">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;13&#x2F;%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="卷积神经网络">
+<meta property="article:published_time" content="2020-05-13T06:43:41.000Z">
+<meta property="article:modified_time" content="2020-05-13T02:57:26.115Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -151,265 +155,245 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-卷积神经网络及应用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      TensorFlow2.0卷积神经网络与应用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8/" class="archive-article-date">
+
+        
+        <a href="/2020/05/13/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8/" class="archive-article-date">
   	<time datetime="2020-05-13T06:43:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8/">TensorFlow2.0卷积神经网络与应用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><a id="more"></a>
+<h2 id="卷积神经网络的应用"><a href="#卷积神经网络的应用" class="headerlink" title="卷积神经网络的应用"></a>卷积神经网络的应用</h2><p>图像分类</p>
+<p>物体检测</p>
+<p>实体分割</p>
+<p>看图说话</p>
+<p>看图问答</p>
+<p>等等</p>
+<h2 id="全神经网络的局限性"><a href="#全神经网络的局限性" class="headerlink" title="全神经网络的局限性"></a>全神经网络的局限性</h2><p>随着图像分辨率提高，参数的数量会变得十分庞大。参数增多会导致计算速度减慢、过拟合等问题。因此需要更合理的结果来有效减少参数的数量。</p>
+<h2 id="卷积神经网络的提出"><a href="#卷积神经网络的提出" class="headerlink" title="卷积神经网络的提出"></a>卷积神经网络的提出</h2><ul>
+<li><p>1962年，通过对猫视觉皮层的研究，提出感受野的概念。视觉皮层的神经元就是局部接受信息，只接受某些特定区域的刺激，而不是对全局图像进行响应。</p>
+</li>
+<li><p>1984年，基于感受野提出神经认知机。</p>
+</li>
+<li><p>CNN可看作神经认知机的推广形式。</p>
+<h2 id="卷积神经网络的结构"><a href="#卷积神经网络的结构" class="headerlink" title="卷积神经网络的结构"></a>卷积神经网络的结构</h2><p>卷积神经网络是多层的神经网络，每层由多个二维平面构成，每个二维平面由多个独立神经元组成。</p>
+</li>
+<li><p>输入层：将每个像素作为一个特征节点输入到网络中。</p>
+</li>
+<li><p>卷积层：作用是使原信号增强，并降低噪音。</p>
+</li>
+<li><p>降采样层：降低训练参数及模型的过拟合程度。</p>
+</li>
+<li><p>全连接层：对生成的特征进行加权。</p>
+<h2 id="卷积操作"><a href="#卷积操作" class="headerlink" title="卷积操作"></a>卷积操作</h2><p>卷积操作简单来说就是求点积、滑动窗口、重复操作。</p>
+</li>
+</ul>
+<blockquote>
+<p>卷积核在二维数据上滑动，对当前输入的数据进行矩阵乘法，然后将结果汇为单个输出像素，直到遍历整张图像。这个过程就是卷积。</p>
+</blockquote>
+<blockquote>
+<p>权值矩阵就是卷积核。每个卷积核都是一种特征提取方式，就像一个筛子，将图像中符合条件的部分筛选出来。</p>
+</blockquote>
+<blockquote>
+<p>卷积后的图像为特征图。</p>
+</blockquote>
+<h2 id="与全连接网络的对比"><a href="#与全连接网络的对比" class="headerlink" title="与全连接网络的对比"></a>与全连接网络的对比</h2><ul>
+<li>全连接网络的每个输出都是对每个输入的加权求和。</li>
+<li>卷积神经网络局部连接：每个输出不需要查看每个输入特征，只需要查看部分特征。</li>
+<li>卷积神经网络权值共享：卷积过程中卷积核保持不变。<h2 id="0填充"><a href="#0填充" class="headerlink" title="0填充"></a>0填充</h2>卷积操作会把特征图的边缘部分裁剪掉，如将5×5的特征矩阵变为3×3的特征矩阵。</li>
+</ul>
+<p>用额外的假像素（值为0）填充边缘，使得输出特征与输入特征尺寸保持一致。</p>
+<h2 id="多通道卷积"><a href="#多通道卷积" class="headerlink" title="多通道卷积"></a>多通道卷积</h2><p>每个卷积核将图像生成另一幅特征映射图，即一个卷积核提取一种特征。</p>
+<p>为了使特征提取得更加充分，可以采取多个卷积核来提取不同的特征，即多通道卷积。</p>
+<p>将不同通道的特征图的相同位置上的值相加，生成一张特征图。</p>
+<p>最后加偏置生成输出特征图。</p>
+<h2 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h2><p>在卷积层后紧跟着一个降采样层，通过减小矩阵的长和宽，达到减少参数的目的。</p>
+<p>计算图像上一个区域的最大值或平均值，这种聚合操作就是池化。</p>
+<p>常用的池化方法：</p>
+<ul>
+<li>均值池化：对池化区域内像素点取均值，这种方法得到的特征数据对背景信息更加敏感。</li>
+<li>最大池化：对池化区域内像素点取最大值，这种方法得到的特征数据对纹理特征更加敏感。<h2 id="步长"><a href="#步长" class="headerlink" title="步长"></a>步长</h2>表示卷积核在图像上一次移动的格数。</li>
+</ul>
+<p>通过步长的变换，可以得到不同尺寸的卷积输出结果。</p>
+<p>步长大于1的卷积也是一种降维的方式。</p>
+<h2 id="过程概括"><a href="#过程概括" class="headerlink" title="过程概括"></a>过程概括</h2><p>输入图像通过若干个“卷积-降采样”后，连接成一个向量输入到传统的分类器层中，最终得到输出。</p>
+<h1 id="CIFAR10图像分类案例"><a href="#CIFAR10图像分类案例" class="headerlink" title="CIFAR10图像分类案例"></a>CIFAR10图像分类案例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">import numpy as np</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">cifar10 &#x3D; tf.keras.datasets.cifar10</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">(train_x,train_y),(test_x,test_y) &#x3D; cifar10.load_data()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">#数据标准化</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">train_x &#x3D; train_x.astype(&#39;float32&#39;)&#x2F;255.0</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">test_x &#x3D; test_x.astype(&#39;float32&#39;)&#x2F;255.0</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">#建立Sequential线性堆叠模型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">model &#x3D; tf.keras.models.Sequential()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">#第一个卷积层</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Conv2D(filters&#x3D;32, #输出通道32个特征图</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">                                kernel_size&#x3D;(3,3), #卷积核的shape</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">                                input_shape&#x3D;(32,32,3), #输入数据的shape</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">                                activation&#x3D;&#39;relu&#39;, #激活函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">                                padding&#x3D;&#39;same&#39;)) #0填充，卷积后尺寸不变</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">#防止过拟合</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Dropout(rate&#x3D;0.3)) #每次训练的过程中，有30%的神经元不参与优化</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">#第一个池化层</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.MaxPooling2D(pool_size&#x3D;(2,2))) #最大池化，</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">#第二个卷积层</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Conv2D(filters&#x3D;64,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">                                kernel_size&#x3D;(3,3),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">                                activation&#x3D;&#39;relu&#39;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">                                padding&#x3D;&#39;same&#39;))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">#防止过拟合</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Dropout(rate&#x3D;0.3))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">#第二个池化层</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.MaxPooling2D(pool_size&#x3D;(2,2)))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">#平坦层</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Flatten())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line"># #添加全连接层（根据电脑性能选择）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line"># model.add(tf.keras.layers.Dense(units&#x3D;128,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">#                                 kernel_initializer&#x3D;&#39;normal&#39;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">#                                 activation&#x3D;&#39;relu&#39;))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">#输出层</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">model.add(tf.keras.layers.Dense(10,activation&#x3D;&#39;softmax&#39;))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line"># # 加载模型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line"># model_filename &#x3D; &#39;models&#x2F;cifarCNNModel.h5&#39;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line"># try:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">#     model.load_weights(model_filename)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">#     print(&#39;模型权重加载成功&#39;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line"># except:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">#     print(&#39;模型权重加载失败&#39;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">#加载checkpoint</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">checkpoint_dir &#x3D; &#39;.&#x2F;checkpoint&#x2F;&#39; #检查点保存目录</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">model_filename &#x3D; tf.train.latest_checkpoint(checkpoint_dir)#得到最新的检查点文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line">if model_filename !&#x3D; None:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line">    model.load_weights(model_filename)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">    print(&quot;加载模型权重文件&#123;&#125;成功！&quot;.format(model_filename))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line">else:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line">    print(&quot;没找到模型权重文件，需要从头开始训练！&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line">#设置回调函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line">#里面的占位符被epoch和传入的监控指标所填入</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">checkpoint_filename &#x3D; &#39;.&#x2F;checkpoint&#x2F;Cifar10.&#123;epoch:02d&#125;-&#123;val_loss:.4f&#125;.H5&#39;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line">callbacks &#x3D; [</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line">    #保存模型的回调函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line">    tf.keras.callbacks.ModelCheckpoint(filepath&#x3D;checkpoint_filename,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line">                                      save_weights_only&#x3D;True,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">79</span></pre></td><td class="code"><pre><span class="line">                                      verbose&#x3D;0,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">80</span></pre></td><td class="code"><pre><span class="line">                                      save_freq&#x3D;&#39;epoch&#39;),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">81</span></pre></td><td class="code"><pre><span class="line">    #终止训练的回调函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">82</span></pre></td><td class="code"><pre><span class="line">    tf.keras.callbacks.EarlyStopping(monitor&#x3D;&#39;val_loss&#39;,patience&#x3D;3),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">83</span></pre></td><td class="code"><pre><span class="line">]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">84</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">85</span></pre></td><td class="code"><pre><span class="line">#设置训练超参数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">86</span></pre></td><td class="code"><pre><span class="line">train_epochs &#x3D; 5 #根据电脑性能选择</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">87</span></pre></td><td class="code"><pre><span class="line">batch_size  &#x3D;100</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">88</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">89</span></pre></td><td class="code"><pre><span class="line">#定义训练模式</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">90</span></pre></td><td class="code"><pre><span class="line">model.compile(optimizer &#x3D; &#39;adam&#39;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">91</span></pre></td><td class="code"><pre><span class="line">             loss &#x3D; &#39;sparse_categorical_crossentropy&#39;, #没有对样本标签做独热编码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">92</span></pre></td><td class="code"><pre><span class="line">             metrics &#x3D; [&#39;accuracy&#39;]) #评估方式，缺省有个loss，这里再加上个accuracy</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">93</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">94</span></pre></td><td class="code"><pre><span class="line">#训练模型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">95</span></pre></td><td class="code"><pre><span class="line">train_history &#x3D; model.fit(train_x,train_y,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">96</span></pre></td><td class="code"><pre><span class="line">                         validation_split &#x3D; 0.2,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">97</span></pre></td><td class="code"><pre><span class="line">                         epochs &#x3D; train_epochs,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">98</span></pre></td><td class="code"><pre><span class="line">                         batch_size &#x3D; batch_size,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">99</span></pre></td><td class="code"><pre><span class="line">                         callbacks &#x3D; callbacks,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">100</span></pre></td><td class="code"><pre><span class="line">                         verbose &#x3D; 2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">101</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">102</span></pre></td><td class="code"><pre><span class="line">#评估模型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">103</span></pre></td><td class="code"><pre><span class="line">test_loss,test_acc &#x3D; model.evaluate(test_x,test_y,verbose &#x3D; 2)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">104</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">105</span></pre></td><td class="code"><pre><span class="line"># # 保存模型权重</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">106</span></pre></td><td class="code"><pre><span class="line"># model_filename &#x3D; &#39;models&#x2F;cifarCNNModel.h5&#39;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">107</span></pre></td><td class="code"><pre><span class="line"># model.save_weights(model_filename)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">108</span></pre></td><td class="code"><pre><span class="line"># print(&quot;以保存模型权重&quot;)</span></pre></td></tr></table></figure>
+<h2 id="改进方法使模型更准确（根据个人可利用的计算资源）"><a href="#改进方法使模型更准确（根据个人可利用的计算资源）" class="headerlink" title="改进方法使模型更准确（根据个人可利用的计算资源）"></a>改进方法使模型更准确（根据个人可利用的计算资源）</h2><ul>
+<li>增加网络层数</li>
+<li>增加迭代次数</li>
+<li>增加全连接层数</li>
+<li>增加全连接神经元个数</li>
+<li>数据扩增，等等</li>
+</ul>
+<h2 id="保存模型训练参数的方法"><a href="#保存模型训练参数的方法" class="headerlink" title="保存模型训练参数的方法"></a>保存模型训练参数的方法</h2><ul>
+<li>在训练完成后调用model.save_weights来保存参数</li>
+<li>设置回调函数</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin2.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/13/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-05-09T14:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Keras序列模型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/Keras%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/">Keras序列模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#卷积神经网络"><span class="toc-number">1.</span> <span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络的应用"><span class="toc-number">1.1.</span> <span class="toc-text">卷积神经网络的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全神经网络的局限性"><span class="toc-number">1.2.</span> <span class="toc-text">全神经网络的局限性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络的提出"><span class="toc-number">1.3.</span> <span class="toc-text">卷积神经网络的提出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络的结构"><span class="toc-number">1.4.</span> <span class="toc-text">卷积神经网络的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积操作"><span class="toc-number">1.5.</span> <span class="toc-text">卷积操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与全连接网络的对比"><span class="toc-number">1.6.</span> <span class="toc-text">与全连接网络的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0填充"><span class="toc-number">1.7.</span> <span class="toc-text">0填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多通道卷积"><span class="toc-number">1.8.</span> <span class="toc-text">多通道卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#池化"><span class="toc-number">1.9.</span> <span class="toc-text">池化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步长"><span class="toc-number">1.10.</span> <span class="toc-text">步长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过程概括"><span class="toc-number">1.11.</span> <span class="toc-text">过程概括</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CIFAR10图像分类案例"><span class="toc-number">2.</span> <span class="toc-text">CIFAR10图像分类案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#改进方法使模型更准确（根据个人可利用的计算资源）"><span class="toc-number">2.1.</span> <span class="toc-text">改进方法使模型更准确（根据个人可利用的计算资源）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存模型训练参数的方法"><span class="toc-number">2.2.</span> <span class="toc-text">保存模型训练参数的方法</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2020-05-09T13:56:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/%E5%A4%9A%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">多层神经网络</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/%E5%88%86%E7%B1%BB%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-08T04:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/%E5%88%86%E7%B1%BB%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/">TensorFlow2.0实战-分类应用入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/TensorFlow2-0%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/" class="archive-article-date">
-  	<time datetime="2020-05-07T11:45:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/TensorFlow2-0%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/">TensorFlow2.0实战-线性回归问题2</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-05-06T08:42:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">机器学习的数学基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-02T15:31:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/TensorFlow2-0%E5%AE%9E%E6%88%98-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">TensorFlow2.0实战-线性回归问题1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-02T00:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/PHP%EF%BC%88%E4%BA%8C%EF%BC%89/">PHP（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-01T01:49:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/PHP%EF%BC%88%E4%B8%80%EF%BC%89/">PHP（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -432,8 +416,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
