@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>前端-js | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="JavaScript基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端-js">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;13&#x2F;%E5%89%8D%E7%AB%AF-js&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JavaScript基础">
+<meta property="article:published_time" content="2020-04-13T12:07:46.000Z">
+<meta property="article:modified_time" content="2020-07-13T14:50:51.541Z">
 <meta property="article:author" content="douhuar">
 <meta name="twitter:card" content="summary">
   
@@ -151,295 +155,341 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-前端-js" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端-js
+    </h1>
+  
+
+        
+        <a href="/2020/04/13/%E5%89%8D%E7%AB%AF-js/" class="archive-article-date">
+  	<time datetime="2020-04-13T12:07:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript基础"><a href="#JavaScript基础" class="headerlink" title="JavaScript基础"></a>JavaScript基础</h1><a id="more"></a>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>学习前端脚本语言Js的基本概念、引入方式、获取页面元素及操作元素属性的技巧，学习函数的调用和使用。</p>
+<h2 id="前端三剑客"><a href="#前端三剑客" class="headerlink" title="前端三剑客"></a>前端三剑客</h2><p>HTML：页面结构</p>
+<p>CSS：页面表现形式</p>
+<p>JS：页面动态效果和特效</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>JS是运行在浏览器端的脚本语言，主要解决前端与用户的交互，包括数据的交互。由浏览器解释运行。</p>
+<ol>
+<li>客户端脚本语言。（脚本语言是一种轻量级的编程语言）</li>
+<li>通常直接被嵌入html页面。</li>
+<li>是一种解释型语言。（不需要预编译）</li>
+</ol>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>弱类型。（var可以接受任何变量，变量的类型由值决定）</li>
+<li>基于对象。（因为面向对象需要具有封装、继承、多态特征）</li>
+<li>安全。（运行在客户端的语言，js没有对文件的操作）</li>
+<li>兼容性。（对多种浏览器的兼容）</li>
+</ol>
+<h2 id="引用方式"><a href="#引用方式" class="headerlink" title="引用方式"></a>引用方式</h2><ol>
+<li><p>页面script标签嵌入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">在html页面的body标签中，使用script标签。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        alert(&quot;hello world!&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &lt;&#x2F;script&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;body&gt;</span></pre></td></tr></table></figure></li>
+<li><p>外部引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    &lt;script src&#x3D;&quot;xxx.js&quot;&gt;&lt;&#x2F;script&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;body&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">如果script标签引入了外部js文件，那么此标签内的js程序不执行。</span></pre></td></tr></table></figure></li>
+<li><p>行间引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;div onclick&#x3D;&quot;alert(&#39;这是行间引用&#39;)&quot;&gt;&lt;&#x2F;div&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;javascript:alert(&#39;这是行间引用&#39;)&quot;&gt;点击&lt;&#x2F;a&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">此方法会暴露代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;javascript:void(0)&quot; onclick&#x3D;&quot;alert(&#39;这是行间引用&#39;)&quot;&gt;点击&lt;&#x2F;a&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">此方法不会暴露代码</span></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">单行注释    &#x2F;&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">多行注释    &#x2F;**&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">语句要用分号结尾，也可以不用分号用换行代替，但是有些时候需要压缩代码，将代码放到一行，就必须用分号了。因此，为了规范，尽量每条语句用分号结尾。</span></pre></td></tr></table></figure>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ol>
+<li>变量类型由值决定。</li>
+<li>定义变量通常使用关键字“var”。</li>
+<li>严格模式下，定义变量必须使用关键字“var”。声明严格模式：“use strict”；</li>
+<li>同时定义赋值多个变量，中间用逗号隔开。var a=1,b=2,c=3;</li>
+</ol>
+</li>
+</ol>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><p>变量名由数字、字母、下划线、$符号组成，不能由数字开头，区分大小写，不能用关键字。</p>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">typeof() 函数，检测数据类型。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">var num &#x3D; 1;  typeof(num) 返回number</span></pre></td></tr></table></figure>
+<ul>
+<li><p>布尔值 boolean</p>
+<blockquote>
+<p>只有true和false两个值，与python不同的是，python中True和False的首字母大写，js中都是小写。</p>
+</blockquote>
+</li>
+<li><p>数值类型 number</p>
+<blockquote>
+<p>包括整数、浮点数、二进制数、八进制数、十六进制数、NaN</p>
+</blockquote>
+<blockquote>
+<p>二进制数用0b或0B开头。例如：<code>var num = 0b1011;</code></p>
+</blockquote>
+<blockquote>
+<p>八进制数用0开头。例如：<code>var num = 011;</code>&emsp;python中用0o开头。</p>
+</blockquote>
+<blockquote>
+<p>十六进制数用0x或0X开头。例如：<code>var num = 0xb5;</code></p>
+</blockquote>
+<blockquote>
+<p>特殊：NaN，表示not a number，但仍是number类型的数据。<code>var num = NaN;</code></p>
+</blockquote>
+</li>
+<li><p>字符串类型</p>
+<blockquote>
+<p>用单引号或双引号引起来的字符组成字符串，单引号和双引号可以嵌套使用。</p>
+</blockquote>
+<blockquote>
+<p>例如：<code>var str1 = &#39;123&#39;;  var str2 = &#39;I love &quot;swh&quot;&#39; ;</code></p>
+</blockquote>
+</li>
+<li><p>对象类型</p>
+<blockquote>
+<p>对象、数组、null</p>
+</blockquote>
+<blockquote>
+<p>例如：<code>var obj = {name = &#39;张三&#39;,age = 18}; //对象</code></p>
+</blockquote>
+<blockquote>
+<p>例如：<code>var list = [1,2,3,4]; //数组，类似python的列表</code></p>
+</blockquote>
+<blockquote>
+<p>例如：<code>var obj = null;</code></p>
+</blockquote>
+</li>
+<li><p>函数类型</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">var func &#x3D; function() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    console.log(&#39;这是一个函数&#39;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
+<li><p>undefined 未定义类型</p>
+<blockquote>
+<p>当我们定义了一个变量，没有给它赋值时，例如：<code>var un;</code>，这个变量就是undefined类型。</p>
+</blockquote>
+<h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><p>使用Number()、parseInt()、parseFloat()做类型转换。</p>
+<blockquote>
+<p>Number()强转一个数值（包括整数和浮点数）<br>parseInt()强转一个整数<br>parseFloat()强转一个浮点数</p>
+</blockquote>
+<p>  var str = ‘123’;<br>  var num = Number(str);<br>  console.log(num); //返回数值123</p>
+<p>  var str = ‘123’;<br>  var num = parseInt(str);<br>  console.log(num); //返回整数123</p>
+<p>  var str = ‘123.123’;<br>  var num = parseFloat(str);<br>  console.log(num); //返回浮点数123.123</p>
+<p>  var str = ‘1abc23’;<br>  var num = Number(str);<br>  console.log(num); //返回NaN</p>
+<p>  var str = ‘1abc23’;<br>  var num = parseInt(str);<br>  console.log(num); //返回1</p>
+<blockquote>
+<p>当字符串中包含非数值型的字符时，<br>Number()返回NaN，<br>parseInt()、parseFloat()  从字符串第一个字符向后读取，直到第一个非数值型字符结束，舍弃其后的所有字符，比如：parseInt(12a345)返回12，<br>如果字符串的第一个字符就是非数值型，那么都返回NaN。</p>
+</blockquote>
+</li>
+</ul>
+<p>isNaN（），检测一个数据是否是一个数值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">var num1 &#x3D; &#39;a&#39;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">isNaN(num); &#x2F;&#x2F;返回true</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">var num2 &#x3D; &#39;1&#39;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">isNaN(num2); &#x2F;&#x2F;返回false，系统自动给只由数值型字符组成的字符串做类型转换</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">var num3 &#x3D; &#39;1a&#39;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">isNaN(num3); &#x2F;&#x2F;返回true</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;isNaN(),不是数值返回true，是数值返回false</span></pre></td></tr></table></figure>
+<p>Boolean（），布尔值数据类型转换，一般用在判断语句</p>
+<ul>
+<li>字符串转布尔值，只有空字符串，转为false，例如：<code>var str  = &#39;&#39;;</code></li>
+<li>数值型转布尔值，只有0、NaN，转为false，例如：<code>var num1 = 0;var num2 = NaN;</code></li>
+<li>对象类型转布尔值，只有null，转为false，例如：<code>var obj = null;</code></li>
+<li>undefined类型转布尔值，也为false</li>
+</ul>
+<p>String（），把指定的值转为字符串</p>
+<blockquote>
+<p>所有的类型的值都可以转换为字符串类型。</p>
+</blockquote>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><ul>
+<li>算术运算符&emsp; <code>+ - × / ++ --</code></li>
+<li>字符串连接&emsp;<code>+</code>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">var str &#x3D; 1+&#39;1&#39;;  &#x2F;&#x2F; 11</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">var str &#x3D; 1+1+&#39;2&#39;; &#x2F;&#x2F;22</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">var str &#x3D; &#39;1&#39;+1+2; &#x2F;&#x2F;112</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 字符串连接符+，当两边有一个是字符串时，做字符串连接；当两边都是数值型，就做算术运算。与python不同，python中必须两边都是字符串才做字符串拼接。</span></pre></td></tr></table></figure></li>
+<li>赋值运算符&emsp;<code>= += -= %=</code></li>
+<li>比较运算符&emsp;<code>&gt; &lt; &gt;= &lt;= == === != !==</code>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;&#x3D; 全等</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">var B &#x3D; 1&#x3D;&#x3D;1; &#x2F;&#x2F;true</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">var B &#x3D; 1&#x3D;&#x3D;&#39;1&#39;; &#x2F;&#x2F;true,系统自动为我们做了类型转换</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">var B &#x3D; 1&#x3D;&#x3D;&#x3D;1; &#x2F;&#x2F;true</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">var B &#x3D; 1&#x3D;&#x3D;&#x3D;&#39;1&#39;; &#x2F;&#x2F;false,全等不仅要比较值，还要比较数据类型。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; !&#x3D;&#x3D; 全不等</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;顾名思义，当两边值不相等，数据类型也不同时，返回true。</span></pre></td></tr></table></figure></li>
+<li>逻辑运算符&emsp;<code>&amp;&amp; || !</code></li>
+<li>位运算符&emsp;<code>^ &amp; | &lt;&lt; &gt;&gt;</code></li>
+<li>其它运算符&emsp;三元运算符：<code>( )?( ):( )</code><h2 id="流程控制-分支结构"><a href="#流程控制-分支结构" class="headerlink" title="流程控制-分支结构"></a>流程控制-分支结构</h2>对代码执行顺序的控制叫做流程控制。不单单只是从上到下。<h3 id="流程控制的分类"><a href="#流程控制的分类" class="headerlink" title="流程控制的分类"></a>流程控制的分类</h3><ol>
+<li>顺序结构(大多数语言的默认结构)</li>
+<li>分支/选择结构</li>
+<li>循环结构</li>
+</ol>
+</li>
+</ul>
+<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>根据条件，执行不同的代码分支。</p>
+<ul>
+<li><p>单项分支结构</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">if(判断条件)&#123;     &#x2F;&#x2F;判断条件为true，执行&#123;&#125;内代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;                &#x2F;&#x2F;真区间只有一行代码时，可以不写&#123;&#125;</span></pre></td></tr></table></figure></li>
+<li><p>双项分支结构</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">if(判断条件)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;else&#123;       &#x2F;&#x2F;当判断条件为false，执行假区间</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
+<li><p>多项分支结构</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">if(判断条件)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;else if(判断条件)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;else if(判断条件)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">else&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 多项分支，只能执行一个分支</span></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">switch(变量)&#123;         &#x2F;&#x2F;变量只能是整型、字符串、布尔值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    case 值1:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        break;   &#x2F;&#x2F;破坏分支</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    case 值2:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">         js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">         break;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    case 值3:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">         js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">         break;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    case 值4:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">         js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">         break;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    default:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">         js代码</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
+<li><p>巢状分支</p>
+<p>  分支的嵌套应用</p>
+</li>
+</ul>
+<h2 id="流程控制-循环结构"><a href="#流程控制-循环结构" class="headerlink" title="流程控制-循环结构"></a>流程控制-循环结构</h2><pre><code>//console.log()  :控制台输出
+//alert()  :弹窗
+新的输出方式
+document.write()  :在html页面输出，要执行完全部js代码，所有内容一起输出</code></pre><ul>
+<li>while循环  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">while(判断条件)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    循环内容</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;&#x2F;&#x2F;循环内容执行完毕，再次回到判断条件的位置</span></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;输出一个6行6列的表格</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    var i &#x3D; 1;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    document.write(&#39;&lt;table border&#x3D;&quot;1&quot;&gt;&#39;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    while (i&lt;&#x3D;6)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        document.write(&#39;&lt;tr&gt;&#39;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        var j &#x3D; 1;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        while (j&lt;&#x3D;6)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            document.write(&#39;&lt;td&gt;&#39;+j+&#39;&lt;&#x2F;td&gt;&#39;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">            j++;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        document.write(&#39;&lt;&#x2F;tr&gt;&#39;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        i++;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    document.write(&#39;&lt;&#x2F;table&gt;&#39;);</span></pre></td></tr></table></figure></li>
+<li>do-while循环  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">do&#123; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    循环内容</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;while(判断条件)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;和while循环的唯一区别，在第一次判断条件为假时，do-while会执行第一次的循环体</span></pre></td></tr></table></figure></li>
+<li>for循环  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;for循环是while循环的一种，是while循环中带有数值和判断条件的计数型循环</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">for(变量定义;判断条件;变量改变)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    循环内容</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
+<li>for..in循环  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;for..in循环，专用遍历对象的循环</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x2F;*</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    for(var 变量 in 对象)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        使用对象中的内容</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">*&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;案例</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    var ch &#x3D; new Object();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    ch.name &#x3D; &quot;张三&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    ch.age &#x3D; 18;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    ch.sex &#x3D; &quot;男&quot;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    for(var attr in ch)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        console.log(attr,ch[attr]);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+<h3 id="其它的流程控制语句"><a href="#其它的流程控制语句" class="headerlink" title="其它的流程控制语句"></a>其它的流程控制语句</h3></li>
+<li>with 语句  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果要输出对象中的内容，要使用对象.属性的方式</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">console.log(ch.name);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">console.log(ch.age);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">console.log(ch.sex);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;with语句，节省代码，省的是对象的名称</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">with(ch)&#123;     &#x2F;&#x2F;请注意，以下内容都是ch对象的</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    console.log(name);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    console.log(age);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    console.log(sex);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
+<li>break 语句  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在switch-case语句中，break可以破坏分支。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;终止循环。</span></pre></td></tr></table></figure></li>
+<li>continue 语句  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;终止当前循环，开启下一次循环。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F;在while循环中，使用continue的时候，要注意变量改变语句(如i++;)的位置，否则很容易把变量改变的语句跳过，而陷入死循环中。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F;一般用在遍历数据的同时过滤数据的操作中。</span></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin2.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/14/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/" class="archive-article-date">
-  	<time datetime="2020-07-14T11:32:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/">网络安全夏令营-学习笔记7</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/13/%E5%89%8D%E7%AB%AF-js/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/14/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/" class="archive-article-date">
-  	<time datetime="2020-07-14T09:13:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/04/16/Python%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/30/%E5%89%8D%E7%AB%AF-CSS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端-CSS</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/">网络安全夏令营-学习笔记6</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript基础"><span class="toc-number">1.</span> <span class="toc-text">JavaScript基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端三剑客"><span class="toc-number">1.2.</span> <span class="toc-text">前端三剑客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.3.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特点"><span class="toc-number">1.4.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用方式"><span class="toc-number">1.5.</span> <span class="toc-text">引用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-number">1.6.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.7.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-number">1.8.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本数据类型"><span class="toc-number">1.9.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型转换"><span class="toc-number">1.10.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算符"><span class="toc-number">1.11.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程控制-分支结构"><span class="toc-number">1.12.</span> <span class="toc-text">流程控制-分支结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#流程控制的分类"><span class="toc-number">1.12.1.</span> <span class="toc-text">流程控制的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支结构"><span class="toc-number">1.12.2.</span> <span class="toc-text">分支结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程控制-循环结构"><span class="toc-number">1.13.</span> <span class="toc-text">流程控制-循环结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#其它的流程控制语句"><span class="toc-number">1.13.1.</span> <span class="toc-text">其它的流程控制语句</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/" class="archive-article-date">
-  	<time datetime="2020-07-13T08:15:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/">网络安全夏令营-学习笔记5</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" class="archive-article-date">
-  	<time datetime="2020-07-13T00:34:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/">网络安全夏令营-学习笔记4</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/10/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" class="archive-article-date">
-  	<time datetime="2020-07-10T07:07:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/10/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/">网络安全夏令营-学习笔记3</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/09/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" class="archive-article-date">
-  	<time datetime="2020-07-09T01:49:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/09/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">网络安全夏令营-学习笔记2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="archive-article-date">
-  	<time datetime="2020-07-07T09:19:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8F%E4%BB%A4%E8%90%A5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">网络安全夏令营-学习笔记1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/18/PHP%EF%BC%88%E5%9B%9B%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-18T03:53:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/18/PHP%EF%BC%88%E5%9B%9B%EF%BC%89/">PHP（四）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/PHP%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-13T14:26:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/PHP%EF%BC%88%E4%B8%89%EF%BC%89/">PHP（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-05-13T06:43:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%BA%94%E7%94%A8/">TensorFlow2.0卷积神经网络与应用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +513,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
